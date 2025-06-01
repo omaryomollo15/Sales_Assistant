@@ -31,7 +31,7 @@
             flex-grow: 1;
             display: flex;
             max-width: 1280px;
-            margin: 1.5rem auto;
+            margin: 0 auto;
             background: #ffffff;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
             border-radius: 1.5rem;
@@ -42,8 +42,11 @@
         #header {
             position: fixed;
             top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
             max-width: 1280px;
+            margin: 0 auto;
             background: radial-gradient(circle, #c0392b, #3498db);
             color: white;
             padding: 1.25rem 2rem;
@@ -58,6 +61,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             z-index: 50;
             animation: gradientShift 10s ease-in-out infinite;
+            overflow-x: hidden;
         }
 
         #header span {
@@ -107,7 +111,7 @@
             flex-direction: column;
             background: #f4f4f9;
             overflow: hidden;
-            padding-top: 6rem; /* Adjust for fixed header */
+            padding-top: 6.5rem; /* Adjust for fixed header height */
         }
 
         #chat-messages {
@@ -436,6 +440,10 @@
             [dir="rtl"] #typing-indicator {
                 margin: 0.75rem 3rem 0.75rem 0;
             }
+
+            #chat-container {
+                padding-top: 5rem; /* Adjust for smaller header on mobile */
+            }
         }
 
         /* High Contrast Mode */
@@ -476,7 +484,7 @@
     </div>
 
     <script>
-        // JavaScript remains unchanged except for minor class updates
+        // JavaScript remains unchanged
         const chatContainer = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
