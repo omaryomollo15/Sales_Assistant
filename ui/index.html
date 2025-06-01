@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnfonMobile TZ Sales-Assistant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Reset and Base Styles */
@@ -14,10 +14,10 @@
         }
 
         body {
-            font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
-            background: #e8f4f7;
+            background: #edf2f7;
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
@@ -32,8 +32,8 @@
             display: flex;
             max-width: 1280px;
             margin: 0 auto;
-            background: #ffffff;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            background: #f7fafc;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
             border-radius: 1.5rem;
             overflow: hidden;
         }
@@ -47,20 +47,19 @@
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            background: radial-gradient(circle, #c0392b, #3498db);
-            color: white;
+            background: linear-gradient(90deg, #2c7a7b, #81e6d9);
+            color: #ffffff;
             padding: 1.25rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: 'Poppins', sans-serif;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'Noto Sans JP', sans-serif;
             font-weight: 600;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             z-index: 50;
-            animation: gradientShift 10s ease-in-out infinite;
             overflow-x: hidden;
         }
 
@@ -84,13 +83,13 @@
         }
 
         #new-chat-button {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 1.5rem;
             padding: 0.5rem 1.25rem;
             font-size: 0.875rem;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
             font-weight: 500;
             text-transform: uppercase;
             cursor: pointer;
@@ -99,7 +98,7 @@
 
         #new-chat-button:hover,
         #new-chat-button:focus {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
             outline: none;
         }
@@ -109,7 +108,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: #f4f4f9;
+            background: #f7fafc;
             overflow: hidden;
             padding-top: 6.5rem; /* Adjust for fixed header height */
         }
@@ -128,7 +127,7 @@
         }
 
         #chat-messages::-webkit-scrollbar-thumb {
-            background: #a0c4ff;
+            background: #81e6d9;
             border-radius: 3px;
         }
 
@@ -160,7 +159,7 @@
             line-height: 1.6;
             white-space: pre-wrap;
             word-wrap: break-word;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
             transition: transform 0.2s ease;
         }
 
@@ -169,8 +168,8 @@
         }
 
         .user-message .message-content {
-            background: #3498db;
-            color: white;
+            background: #2c7a7b;
+            color: #ffffff;
             border-bottom-right-radius: 0.25rem;
         }
 
@@ -180,8 +179,8 @@
         }
 
         .bot-message .message-content {
-            background: #f4f4f9;
-            color: #2d3436;
+            background: #e53e3e;
+            color: #ffffff;
             border-bottom-left-radius: 0.25rem;
         }
 
@@ -197,14 +196,14 @@
             background: #ffffff;
             border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
         }
 
         .price-table th,
         .price-table td {
             padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid #dfe6e9;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         [dir="rtl"] .price-table th,
@@ -213,17 +212,17 @@
         }
 
         .price-table th {
-            background: #3498db;
-            color: white;
+            background: #2c7a7b;
+            color: #ffffff;
             font-weight: 600;
         }
 
         .price-table tr:nth-child(even) {
-            background: #f4f4f9;
+            background: #f7fafc;
         }
 
         .price-table tr:hover {
-            background: #e8f4f7;
+            background: #edf2f7;
         }
 
         .price-table-container {
@@ -241,18 +240,18 @@
             align-items: center;
             font-size: 1.25rem;
             font-weight: 600;
-            color: white;
+            color: #ffffff;
             flex-shrink: 0;
             margin: 0 1rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .user-message .profile-circle {
-            background: #3498db;
+            background: #2c7a7b;
         }
 
         .bot-message .profile-circle {
-            background: #c0392b;
+            background: #e53e3e;
         }
 
         /* Input Wrapper */
@@ -262,15 +261,16 @@
             margin: 1.25rem;
             display: flex;
             align-items: center;
-            background: linear-gradient(145deg, #ffffff, #e8f4f7);
+            background: linear-gradient(145deg, #ffffff, #edf2f7);
             border-radius: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             padding: 0.75rem;
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
 
         .input-wrapper:focus-within {
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
         }
 
         #user-input {
@@ -290,14 +290,14 @@
         }
 
         #user-input::placeholder {
-            color: #636e72;
+            color: #718096;
             opacity: 0.8;
         }
 
         #send-button {
             display: none;
-            background: #3498db;
-            color: white;
+            background: #2c7a7b;
+            color: #ffffff;
             border: none;
             width: 2.5rem;
             height: 2.5rem;
@@ -317,7 +317,7 @@
 
         #send-button:hover,
         #send-button:focus {
-            background: #2980b9;
+            background: #285e61;
             transform: scale(1.1);
             outline: none;
         }
@@ -327,13 +327,13 @@
             padding: 1rem 1.5rem;
             margin: 1rem 0 1rem 3.75rem;
             max-width: 75%;
-            background: #f4f4f9;
-            color: #2d3436;
+            background: #e53e3e;
+            color: #ffffff;
             border-radius: 1.25rem;
             border-bottom-left-radius: 0.25rem;
             font-size: 1rem;
             line-height: 1.6;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
             animation: pulse 1.2s ease-in-out infinite;
         }
 
@@ -449,17 +449,17 @@
         /* High Contrast Mode */
         @media (prefers-contrast: high) {
             .message-content {
-                border: 1px solid #2d3436;
+                border: 1px solid #1a202c;
             }
 
             .user-message .message-content {
-                background: #3498db;
+                background: #2c7a7b;
                 color: #ffffff;
             }
 
             .bot-message .message-content {
-                background: #f4f4f9;
-                color: #2d3436;
+                background: #e53e3e;
+                color: #ffffff;
             }
         }
     </style>
