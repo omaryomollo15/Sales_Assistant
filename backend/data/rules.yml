@@ -1,0 +1,37 @@
+
+version: "3.1"
+
+rules:
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: action_set_slot_greeting_keyword
+  - action: utter_greet
+- rule: Provide sales process
+  steps:
+  - intent: ask_sales_process
+  - action: utter_ask_sales_process
+- rule: Provide payment methods
+  steps:
+  - intent: ask_payment_methods
+  - action: utter_ask_payment_methods
+- rule: Provide maintenance info
+  steps:
+  - intent: ask_maintenance
+  - action: utter_ask_maintenance
+- rule: Handle lost phone
+  steps:
+  - intent: ask_lost_phone
+  - action: utter_ask_lost_phone
+- rule: Provide bot identity
+  steps:
+  - intent: ask_bot_identity
+  - action: utter_ask_bot_identity
+- rule: Provide phone locking info
+  steps:
+  - intent: lock_phone
+  - action: utter_lock_phone
+- rule: Provide phone pricing
+  steps:
+  - intent: phone_pricing
+  - action: utter_phone_pricing

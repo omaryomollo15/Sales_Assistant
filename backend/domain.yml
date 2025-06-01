@@ -1,0 +1,508 @@
+version: "3.1"
+
+intents:
+  - greet
+  - ask_sales_process
+  - ask_payment_methods
+  - ask_maintenance
+  - ask_lost_phone
+  - ask_bot_identity
+  - lock_phone
+  - phone_pricing
+  - sync_portal_users
+  - nlu_fallback
+
+slots:
+  greeting_keyword:
+    type: text
+    mappings:
+      - type: from_text
+  language:
+    type: text
+    mappings:
+      - type: from_text
+    initial_value: "english"
+
+actions:
+  - action_set_slot_greeting_keyword
+  - action_set_language
+  - action_respond_by_language
+  - action_sync_portal_users
+
+responses:
+  utter_greet:
+    - text: "{greeting_keyword}! Mimi ni OnfonMobile TZ, chatbot yako ya kumudu mauzo ya simu. Naweza kukusaidiaje leo?"
+    - text: "{greeting_keyword}! I'm OnfonMobile TZ, your chatbot for managing phone sales. How can I assist you today?"
+  utter_ask_bot_identity:
+    - text: "Mimi ni OnfonMobile TZ, bot ya kusaidia mauzo ya simu. Unaweza kuniuliza chochote!"
+    - text: "I’m OnfonMobile TZ, a bot to assist with phone sales. You can ask me anything!"
+  utter_ask_sales_process:
+    - text: "HATUA ZA KUFANYA MAUZO:\n\n1. Mchakato wa Mauzo Huanza Kwa kumsajili Mteja Kupitia USSD *147*04#. Mteja ni lazima awe na laini iliyosajiliwa kwa namba yake ya NIDA, namba ya NIDA na asilimia 30% ya kianzio ili kuwezesha usajili wake. NB: Kabla ya kuingiza taarifa za mteja kwenye mfumo wetu (Portal), hakikisha kuwa mteja amesajiliwa kikamilifu, amepata SMS ya simu anazoweza kukopa na laini yake ya Vodacom ina hela ya kianzio.\n\n2. Baada Ya Usajili kukamilika Anza Kujaza Taarifa Za Mteja Kwenye Mfumo Wetu (Portal).\n\ni. Unaweza kutumia kimoja kati ya hivi kumtafuta mteja kwenye mfumo:\n  - Namba ya simu au\n  - Namba ya NIDA.\n    NB: Hakikisha umeweka namba sahihi iliyosajiliwa kupitia USSD ili kuanza mchakato wako wa mauzo.\n\nii. Bonyeza “Add Loan” ili kuweka namba ya NIDA kwenye portal kwa ajili ya kuthibitisha taarifa za NIDA za mteja unayemuuzia simu.\n  - Hakikisha NIDA namba ni sahihi. Endapo kama utakosea namba ya NIDA, basi hutaweza kuhakiki alama za vidole au kupata maswali kwenye mfumo. Hivyo basi, utashindwa kuendelea na mchakato wa mauzo. Thibitisha mara mbili kama namba ni sahihi kabla ya kuanza kufanya uthibitisho wa mteja kwa njia ya maswali au kuscan alama za vidole.\n\niii. Thibitisha taarifa za mteja kwa kubonyeza “Confirm” mara tu picha ya mteja inapojitokeza.\niv. Chagua aina ya simu anayoihitaji mteja.\nv. Hakiki rangi na ukubwa (storage) ya simu uliyoichagua kutoka kwenye orodha.\nvi. Tuma OTP. Utapata OTP mbili, moja ya muuzaji na nyingine ya mteja.\nvii. Thibitisha umepokea OTP ili kujaza taarifa za hatua inayofuata.\nviii. Anza kuweka OTP yako uliyotumiwa, kisha weka OTP ya mteja.\nix. Weka IMEI ya kwanza ya simu unayomuuzia mteja. Hakikisha ni sahihi.\nx. Wasilisha taarifa kwa kubonyeza “Submit” ili kutuma STK push ya kufanya malipo ya awali kwa mteja.\nxi. Baada ya kujiridhisha kuwa malipo yamepokelewa na Onfon bonyeza “Confirm” ili kufungua kipengele cha kulock simu. Hapa zitakuja hatua za kulock simu kulingana na aina ya simu aliyoichagua mteja."
+    - text: "STEPS FOR CONDUCTING SALES:\n\n1. The sales process begins by registering the customer via USSD *147*04#. The customer must have a line registered with their NIDA number, the NIDA number, and 30% of the initial payment to enable registration. Note: Before entering customer details into our system (Portal), ensure the customer is fully registered, has received an SMS listing the phones they can borrow, and their Vodacom line has the initial funds.\n\n2. After registration is complete, start entering the customer’s details into our system (Portal).\n\ni. You can use one of the following to search for the customer in the system:\n  - Phone number or\n  - NIDA number.\n    Note: Ensure you enter the correct number registered via USSD to start your sales process.\n\nii. Click “Add Loan” to enter the NIDA number in the portal to verify the customer’s NIDA details.\n  - Ensure the NIDA number is correct. If you enter an incorrect NIDA number, you won’t be able to verify fingerprints or access questions in the system, preventing you from proceeding with the sales process. Double-check the number before starting customer verification via questions or fingerprint scanning.\n\niii. Verify the customer’s details by clicking “Confirm” once the customer’s photo appears.\niv. Select the type of phone the customer needs.\nv. Verify the color and size (storage) of the selected phone from the list.\nvi. Send OTP. You will receive two OTPs: one for the seller and one for the customer.\nvii. Confirm receipt of the OTP to fill in the details for the next step.\nviii. Enter your OTP, then the customer’s OTP.\nix. Enter the first IMEI of the phone being sold to the customer. Ensure it’s correct.\nx. Submit the details by clicking “Submit” to send an STK push for the initial payment to the customer.\nxi. After confirming that Onfon has received the payment, click “Confirm” to unlock the phone locking feature. The steps to lock the phone will depend on the type of phone the customer has chosen."
+  utter_ask_payment_methods:
+    - text: "JINSI YA KUFANYA MALIPO:\nKuna njia tatu za kufanya malipo ya mkopo wako:-\n1. Kwa kutumia USSD:\n   - Piga *147*04#, chagua namba 2 kulipa mkopo.\n\n2. Kwa kutumia Application ya OnfonMicrofinance:\n   - Weka namba ya simu ya mteja ikianza na +255 na namba ya siri ya mteja (Namba 4 za mwanzo alizoweka wakati anajisajili kupitia USSD) kisha bonyeza kitufe cha Login.\n\n3. Kwa Kutumia M-PESA:\n   - Piga *150*00#\n   - Chagua kulipa kwa Mpesa\n   - Ingiza Lipa Namba 277700\n   - Weka Namba ya NIDA au namba ya simu ya mteja yenye mkopo kama namba ya kumbukumbu ya malipo (zingatia sana hapa).\n   - Weka kiasi\n   - Weka Namba ya siri\n   - Thibitisha Muamala\n\nNB: KUMBUKA YAFUATAYO:\n- Mkumbushe mteja kufanya malipo kabla ya masaa 24 kupita ili simu yake isijilock.\n- Hakikisha mteja anafahamu namba ya huduma kwa wateja ambayo ni 0748770112.\n- Malipo hufanywa kwa siku, wiki, mwezi au kiasi kingine chochote anachopendelea mteja.\n- Mfano: siku mbili, tatu, miezi miwili nk.\n- Mkumbushe mteja kufanya malipo mapema laini aliyokopea ikiwa ndani ya simu ili kuepusha simu yake kujifunga.\n- Anapolipia mkumbushe awashe data ili simu yake isijifunge, inapotokea ameshindwa kabisa kupata usaidizi muelekeze apige simu huduma kwa wateja 0748770112."
+    - text: "HOW TO MAKE PAYMENTS:\nThere are three ways to make loan payments:-\n1. Using USSD:\n   - Dial *147*04#, select option 2 to pay the loan.\n\n2. Using the OnfonMicrofinance Application:\n   - Enter the customer’s phone number starting with +255 and the customer’s PIN (the first 4 digits set during USSD registration), then click the Login button.\n\n3. Using M-PESA:\n   - Dial *150*00#\n   - Select pay via Mpesa\n   - Enter Lipa Number 277700\n   - Enter the customer’s NIDA number or phone number with the loan as the payment reference number (pay close attention here).\n   - Enter the amount\n   - Enter the PIN\n   - Confirm the transaction\n\nNote: REMEMBER THE FOLLOWING:\n- Remind the customer to make payments within 24 hours to prevent their phone from locking.\n- Ensure the customer knows the customer service number, which is 0748770112.\n- Payments can be made daily, weekly, monthly, or any other amount the customer prefers.\n- Example: two days, three days, two months, etc.\n- Remind the customer to make payments early with the borrowed line inserted in the phone to prevent it from locking.\n- When paying, remind them to turn on data to avoid the phone locking; if they fail to get assistance, direct them to call customer service at 0748770112."
+  utter_ask_maintenance:
+    - text: "MATENGENEZO:\n\nMatengenezo yote ya simu yafanyike katika vituo elekezi vya maduka ya VODACOM. Matatizo ya kimfumo pekee ndiyo yatakayofanyiwa kazi bila gharama kwa muda ambao simu itakuwa ndani ya warantii."
+    - text: "MAINTENANCE:\n\nAll phone maintenance should be done at authorized VODACOM shops. Only software issues will be addressed free of charge during the phone’s warranty period."
+  utter_ask_lost_phone:
+    - text: "Ikiwa umepoteza simu yako, fuata hatua hizi:\n\n- Kama mteja atapoteza simu, piga huduma kwa wateja 0748770112 kwa maelekezo na msaada zaidi.\n- Mteja anapaswa kuripoti taarifa hiyo kituo cha Polisi mara baada ya tukio ili kupata barua ya upotevu wa simu yako.\n- Ambatanisha taarifa zako na kopi ya NIDA kisha utume kwenye anuani yetu: customercare@onfonmicrofinance.co.tz"
+    - text: "If you’ve lost your phone, follow these steps:\n\n- If the customer loses their phone, call customer service at 0748770112 for further instructions and assistance.\n- The customer should report the incident to the police immediately to obtain a loss report for the phone.\n- Attach your details and a copy of your NIDA, then send them to our address: customercare@onfonmicrofinance.co.tz"
+  utter_lock_phone:
+    - text: "HATUA ZA KULOCK SIMU:\nTofauti na hapo awali ambapo simu zote zilikuwa zikitumia Lock Solution moja, kwa sasa kila aina au kundi la simu linatumia Lock Solution yake. Mfano; Simu zote za Vivo zinatumia Lock Solution ya V-Trust, Kundi la simu zote za Transsion kama vile Infinix, Tecno, Itel na Phillips zinatumia Lock Solution ya Pay Trigger, Simu zote za Oppo zinatumia Lock Solution ya O-Guard na mwisho simu zote za Samsung zinatumia Lock Solution ya Trustonic. Hata hivyo; baadhi ya simu kama Realme, Honor, ZTE na nyingine zitaendelea kutumia Think Adams kama ilivyokuwa hapo awali.\n\nJINSI YA KULOCK SIMU ZA VIVO:\nModels zote za Vivo zilizopo katika mfumo wetu wa mauzo zitatumia Lock Solution ya V-TRUST. Fuata hatua zilizoainishwa hapa chini ili uweze kulock simu ya mteja:\na) Hakikisha simu ni mpya na haijawashwa.\nb) Fungua boksi kisha fuata hatua za kawaida za kuwasha simu.\nc) Usiunganishe simu katika intaneti kabla ya kuweka IMEI ya kwanza kwenye mfumo wa mauzo. (Hakikisha unaweka IMEI ya kwanza kwa usahihi).\nd) Unganisha simu na Intaneti iliyo dhabiti. Hatua hii ni ya muhimu sana hivyo hakikisha kwamba chanzo chako cha intaneti ni cha uhakika.\ne) Baada ya simu kuunganishwa kwenye intaneti bonyeza kifufe cha kutuma AUTH CODE kwenye portal.\nf) Fuata hatua za kawaida za kuwasha simu ya mteja hadi simu iwake kabisa.\ng) Katika ubao wa taarifa mpya (Notifications) utakuta CODE iliyotumwa na V-TRUST katika simu ya mteja, iandike kwenye portal kwa usahihi.\nh) Thibitisha (Verify) Code hiyo kwenye Portal kisha ubonyeze CODE iliyotumwa katika ubao wa taarifa ili uweze kusanikisha V-TRUST kwenye simu ya mteja.\ni) Kubali kila hatua itakayofuata hadi simu itakapokupa ujumbe unaosema “UIDHINISHO UMEFANIKIWA (ACTIVATION SUCCESS)” na ubonyeze OK.\nj) Baada ya kukamilisha usanikishaji wa V-TRUST kwenye simu ya mteja, rudi kwenye mfumo (Portal) kuthibitisha/kuconfirm Lock Solution.\n\nJINSI YA KULOCK SIMU ZA TRANSSION:\nSimu zote za Tecno, Infinix, Itel & Phillips zitakuwa zikitumia Lock Solution ya Pay Trigger. Fuata hatua zilizoainishwa hapa chini ili uweze kulock simu ya mteja:\na) Fungua boksi la simu ya mteja.\nb) Washa simu.\nc) Kataa machaguo yoyote yasiyo ya lazima yanayoweza kusababisha simu isiwake au kuchelewesha mchakato wa simu kuwaka hadi mwisho.\nd) Kubali na uruhusu machaguo yote yanayohusisha simu kupata ruhusa ya kutumia leseni na mifumo muhimu.\ne) Kamilisha/Idhinisha mipangilio yote muhimu hadi kufikia hatua ya kuona aplikesheni za simu pindi inapowaka.\nf) Unganisha simu na intaneti ili kusanikisha Lock Solution.\ng) Kubali kila hatua itakayofuata kwa kubonyeza vitufe sahihi ili kuruhusu usanikishaji wa Lock Solution.\nh) Baada ya kukamilisha usanikishaji wa Pay Trigger kwenye simu ya mteja, rudi kwenye mfumo (Portal), ili kuthibitisha/kuconfirm Lock Solution.\n\nJINSI YA KULOCK SIMU ZA OPPO:\nSimu zote za Oppo zilizopo katika mfumo wetu wa mauzo zitakuwa zikitumia Lock Solution ya O-Guard. Fuata hatua zilizoainishwa hapa chini ili uweze kulock simu ya mteja:\na) Fungua boksi la simu ya mteja.\nb) Washa simu.\nc) Kataa machaguo yoyote yasiyo ya lazima yanayoweza kusababisha simu isiwake hadi mwisho.\nd) Kubali na uruhusu machaguo yote yanayohusisha simu kupata ruhusa ya kutumia leseni na mifumo muhimu.\ne) Kamilisha/Idhinisha mipangilio yote muhimu hadi kufikia hatua ya kuona aplikesheni za simu pindi inapowaka.\nf) Unganisha simu na intaneti ili kusanikisha Lock Solution.\ng) Kubali kila hatua itakayofuata kwa kubonyeza vitufe sahihi ili kuruhusu usanikishaji wa Lock Solution.\nh) Baada ya kukamilisha usanikishaji wa O-Guard kwenye simu ya mteja, rudi kwenye mfumo (Portal), ili kuthibitisha/kuconfirm Lock Solution.\n\nZINGATIA:\n1. Hakiki IMEI namba ya simu kabla ya kuwasilisha (Submit) taarifa za mteja kwenye mfumo ili kutuma USSD/STK PUSH kwa mteja. Lazima iwe IMEI ya kwanza ya simu ambayo ameichagua mteja.\n2. Hakikisha malipo ya kianzio yanafanywa kwa njia ya USSD/STK PUSH inayotumwa kwenye namba ya mteja inayochukua mkopo. Kianzio kisilipwe kwa njia nyingine yoyote isipokuwa USSD/STK PUSH, ambapo mteja atapokea “Pop Up” SMS yenye kiasi cha pesa husika ya kianzio ikimtaka abonyeze 1 kufanya malipo kwenda Onfon Microfinance, kisha kuweka namba ya siri na mwisho mteja atatakiwa kubonyeza 1 ili kuthibisha malipo yake.\n3. Hatua za kulock simu zinatofautiana kulingana na aina ya simu ambayo unamuuzia mteja. Mfumo utakupa aina ya Lock Solution itakayotumika kulingana na simu uliyoichagua katika mfumo. Zoezi hili linafanywa moja kwa moja (Automatically) na mfumo wenyewe. Hivyo basi, baada ya mteja kulipa kianzio basi utaona aina ya Lock Solution itakayotimika kulock simu pamoja na hatua za kufuata ili kukamilisha mchakato mzima wa kulock simu ya mteja.\n4. Usimruhusu mteja aondoke dukani kama hujakamilisha mchakato wa kusanikisha Lock Solution. Ni lazima ukamilishe hatua zote za kulock simu kwa usahihi.\n5. Usiconfirm Lock Solution kwenye portal kama bado simu haijatamatisha hatua za kusanikisha Lock Solution.\n6. Baada ya kupokea ujumbe ambao unathibitisha usanikishaji wa Lock Solution umefanikiwa “ACTIVATION SUCCESS” piga picha kisha uambatanishe na namba ya simu ya mteja iliyochukua mkopo ili uweze kutuma katika group la mauzo la Onfon Microfinance.\n7. Sanikisha Application ya Onfon Microfinance kwenye simu ya mteja kutoka Google Play Store.\n8. Ili kurahisisha mauzo hakikisha una intaneti yenye kasi na kuaminika."
+    - text: "PHONE LOCKING STEPS:\nUnlike before, when all phones used a single Lock Solution, now each phone type or group uses its own Lock Solution. For example: All Vivo phones use the V-Trust Lock Solution, all Transsion phones like Infinix, Tecno, Itel, and Phillips use the Pay Trigger Lock Solution, all Oppo phones use the O-Guard Lock Solution, and all Samsung phones use the Trustonic Lock Solution. However, some phones like Realme, Honor, ZTE, and others will continue to use Think Adams as before.\n\nHOW TO LOCK VIVO PHONES:\nAll Vivo models in our sales system will use the V-Trust Lock Solution. Follow the steps below to lock the customer’s phone:\na) Ensure the phone is new and hasn’t been turned on.\nb) Open the box and follow the usual steps to power on the phone.\nc) Do not connect the phone to the internet before entering the first IMEI into the sales system. (Ensure the first IMEI is entered correctly).\nd) Connect the phone to a stable internet connection. This step is crucial, so ensure your internet source is reliable.\ne) After the phone is connected to the internet, click the button to send the AUTH CODE on the portal.\nf) Follow the usual steps to power on the customer’s phone until it’s fully on.\ng) In the notification panel, you’ll find the CODE sent by V-Trust to the customer’s phone; enter it correctly into the portal.\nh) Verify the Code on the portal, then click the CODE sent in the notification panel to install V-Trust on the customer’s phone.\ni) Accept each subsequent step until the phone displays a message saying “ACTIVATION SUCCESS” and click OK.\nj) After completing the V-Trust installation on the customer’s phone, return to the system (Portal) to confirm the Lock Solution.\n\nHOW TO LOCK TRANSSION PHONES:\nAll Tecno, Infinix, Itel, and Phillips phones will use the Pay Trigger Lock Solution. Follow the steps below to lock the customer’s phone:\na) Open the customer’s phone box.\nb) Turn on the phone.\nc) Decline any unnecessary options that could prevent the phone from powering on or delay the process.\nd) Accept and allow all options related to the phone obtaining permission to use licenses and essential systems.\ne) Complete/approve all necessary settings until you reach the point of seeing the phone’s applications when it powers on.\nf) Connect the phone to the internet to install the Lock Solution.\ng) Accept each subsequent step by clicking the correct buttons to allow the installation of the Lock Solution.\nh) After completing the Pay Trigger installation on the customer’s phone, return to the system (Portal) to confirm the Lock Solution.\n\nHOW TO LOCK OPPO PHONES:\nAll Oppo phones in our sales system will use the O-Guard Lock Solution. Follow the steps below to lock the customer’s phone:\na) Open the customer’s phone box.\nb) Turn on the phone.\nc) Decline any unnecessary options that could prevent the phone from powering on completely.\nd) Accept and allow all options related to the phone obtaining permission to use licenses and essential systems.\ne) Complete/approve all necessary settings until you reach the point of seeing the phone’s applications when it powers on.\nf) Connect the phone to the internet to install the Lock Solution.\ng) Accept each subsequent step by clicking the correct buttons to allow the installation of the Lock Solution.\nh) After completing the O-Guard installation on the customer’s phone, return to the system (Portal) to confirm the Lock Solution.\n\nNOTE:\n1. Verify the phone’s IMEI number before submitting the customer’s details in the system to send the USSD/STK PUSH to the customer. It must be the first IMEI of the phone chosen by the customer.\n2. Ensure the initial payment is made via USSD/STK PUSH sent to the customer’s number taking the loan. The initial payment must not be paid by any other method except USSD/STK PUSH, where the customer will receive a “Pop Up” SMS with the initial payment amount, prompting them to press 1 to make the payment to Onfon Microfinance, then enter their PIN, and finally press 1 to confirm the payment.\n3. The steps to lock the phone vary depending on the type of phone being sold to the customer. The system will provide the Lock Solution to be used based on the phone selected in the system. This process is done automatically by the system. Thus, after the customer pays the initial amount, you will see the Lock Solution to be applied to lock the phone along with the steps to follow to complete the entire phone locking process.\n4. Do not allow the customer to leave the shop if you haven’t completed the Lock Solution installation process. You must complete all phone locking steps correctly.\n5. Do not confirm the Lock Solution on the portal if the phone hasn’t completed the Lock Solution installation steps.\n6. After receiving the message confirming the Lock Solution installation was successful (“ACTIVATION SUCCESS”), take a photo and attach it with the customer’s phone number that took the loan to send to the Onfon Microfinance sales group.\n7. Install the Onfon Microfinance Application on the customer’s phone from the Google Play Store.\n8. To facilitate sales, ensure you have a fast and reliable internet connection."
+  utter_phone_pricing:
+    - text: |
+        Hizi ni bei za simu za OnfonMobile TZ (TZS):
+
+        1. Simu: OPPO A18 4/64GB
+           Bei ya Kuuzia: 300,000
+           Kianzio: 90,000
+           Malipo ya Siku: 1,700
+           Malipo ya Wiki: 11,900
+           Malipo ya Mwezi: 51,000
+        2. Simu: OPPO A18 4/128GB
+           Bei ya Kuuzia: 350,000
+           Kianzio: 108,000
+           Malipo ya Siku: 2,000
+           Malipo ya Wiki: 14,000
+           Malipo ya Mwezi: 60,000
+        3. Simu: OPPO A38 4/128GB
+           Bei ya Kuuzia: 440,000
+           Kianzio: 132,000
+           Malipo ya Siku: 2,400
+           Malipo ya Wiki: 16,800
+           Malipo ya Mwezi: 72,000
+        4. Simu: OPPO A58 6/128GB
+           Bei ya Kuuzia: 510,000
+           Kianzio: 153,000
+           Malipo ya Siku: 2,700
+           Malipo ya Wiki: 18,900
+           Malipo ya Mwezi: 81,000
+        5. Simu: OPPO A58 8/128GB
+           Bei ya Kuuzia: 590,000
+           Kianzio: 177,000
+           Malipo ya Siku: 3,100
+           Malipo ya Wiki: 21,700
+           Malipo ya Mwezi: 93,000
+        6. Simu: OPPO A3X 4/64GB
+           Bei ya Kuuzia: 330,000
+           Kianzio: 99,000
+           Malipo ya Siku: 1,900
+           Malipo ya Wiki: 13,300
+           Malipo ya Mwezi: 57,000
+        7. Simu: OPPO A3X 4/128GB
+           Bei ya Kuuzia: 399,000
+           Kianzio: 119,700
+           Malipo ya Siku: 2,200
+           Malipo ya Wiki: 15,400
+           Malipo ya Mwezi: 66,000
+        8. Simu: VIVO Y28 8/256GB
+           Bei ya Kuuzia: 559,000
+           Kianzio: 167,700
+           Malipo ya Siku: 3,000
+           Malipo ya Wiki: 21,000
+           Malipo ya Mwezi: 90,000
+        9. Simu: VIVO Y18 6/128GB
+           Bei ya Kuuzia: 390,000
+           Kianzio: 117,000
+           Malipo ya Siku: 2,200
+           Malipo ya Wiki: 15,400
+           Malipo ya Mwezi: 66,000
+        10. Simu: VIVO Y03 4/128GB
+            Bei ya Kuuzia: 332,000
+            Kianzio: 99,600
+            Malipo ya Siku: 1,900
+            Malipo ya Wiki: 13,300
+            Malipo ya Mwezi: 57,000
+        11. Simu: VIVO Y03 4/64GB
+            Bei ya Kuuzia: 289,000
+            Kianzio: 86,700
+            Malipo ya Siku: 1,700
+            Malipo ya Wiki: 11,900
+            Malipo ya Mwezi: 51,000
+        12. Simu: VIVO Y19s 6/128GB
+            Bei ya Kuuzia: 380,000
+            Kianzio: 114,000
+            Malipo ya Siku: 2,100
+            Malipo ya Wiki: 14,700
+            Malipo ya Mwezi: 63,000
+        13. Simu: SAMSUNG A05 4/128GB
+            Bei ya Kuuzia: 325,000
+            Kianzio: 97,500
+            Malipo ya Siku: 1,900
+            Malipo ya Wiki: 13,300
+            Malipo ya Mwezi: 57,000
+        14. Simu: SAMSUNG A05 4/64GB
+            Bei ya Kuuzia: 300,000
+            Kianzio: 90,000
+            Malipo ya Siku: 1,700
+            Malipo ya Wiki: 11,900
+            Malipo ya Mwezi: 51,000
+        15. Simu: SAMSUNG A05s 4/64GB
+            Bei ya Kuuzia: 355,000
+            Kianzio: 106,500
+            Malipo ya Siku: 2,000
+            Malipo ya Wiki: 14,000
+            Malipo ya Mwezi: 60,000
+        16. Simu: SAMSUNG A05s 4/128GB
+            Bei ya Kuuzia: 380,000
+            Kianzio: 114,000
+            Malipo ya Siku: 2,100
+            Malipo ya Wiki: 14,700
+            Malipo ya Mwezi: 63,000
+        17. Simu: INFINIX NOTE 30 PRO 8/256GB
+            Bei ya Kuuzia: 480,000
+            Kianzio: 144,000
+            Malipo ya Siku: 2,600
+            Malipo ya Wiki: 18,200
+            Malipo ya Mwezi: 78,000
+        18. Simu: INFINIX SMART 8 3/64GB
+            Bei ya Kuuzia: 269,000
+            Kianzio: 80,700
+            Malipo ya Siku: 1,600
+            Malipo ya Wiki: 11,200
+            Malipo ya Mwezi: 48,000
+        19. Simu: INFINIX SMART 9 4/128GB
+            Bei ya Kuuzia: 328,000
+            Kianzio: 98,400
+            Malipo ya Siku: 1,900
+            Malipo ya Wiki: 13,300
+            Malipo ya Mwezi: 57,000
+        20. Simu: INFINIX HOT50I 4G/128GB
+            Bei ya Kuuzia: 340,000
+            Kianzio: 102,000
+            Malipo ya Siku: 1,900
+            Malipo ya Wiki: 13,300
+            Malipo ya Mwezi: 57,000
+        21. Simu: INFINIX HOT 40i 8/128GB
+            Bei ya Kuuzia: 333,000
+            Kianzio: 99,900
+            Malipo ya Siku: 1,900
+            Malipo ya Wiki: 13,300
+            Malipo ya Mwezi: 57,000
+        22. Simu: INFINIX HOT 50 PRO+ 8/128GB
+            Bei ya Kuuzia: 590,000
+            Kianzio: 177,000
+            Malipo ya Siku: 3,100
+            Malipo ya Wiki: 21,700
+            Malipo ya Mwezi: 93,000
+        23. Simu: TECNO CAMON 30S 128GB/6GB
+            Bei ya Kuuzia: 580,000
+            Kianzio: 174,000
+            Malipo ya Siku: 3,100
+            Malipo ya Wiki: 21,700
+            Malipo ya Mwezi: 93,000
+        24. Simu: TECNO SPARK 30C 128GB/4GB
+            Bei ya Kuuzia: 330,000
+            Kianzio: 99,000
+            Malipo ya Siku: 1,900
+            Malipo ya Wiki: 13,300
+            Malipo ya Mwezi: 57,000
+        25. Simu: REALME C61 6/128GB
+            Bei ya Kuuzia: 350,000
+            Kianzio: 105,000
+            Malipo ya Siku: 2,000
+            Malipo ya Wiki: 14,000
+            Malipo ya Mwezi: 60,000
+        26. Simu: REALME C61 6/256GB
+            Bei ya Kuuzia: 360,000
+            Kianzio: 108,000
+            Malipo ya Siku: 2,000
+            Malipo ya Wiki: 14,000
+            Malipo ya Mwezi: 60,000
+        27. Simu: REALME NOTE 50 4/128GB
+            Bei ya Kuuzia: 290,000
+            Kianzio: 87,000
+            Malipo ya Siku: 1,700
+            Malipo ya Wiki: 11,900
+            Malipo ya Mwezi: 51,000
+        28. Simu: REALME NOTE 50 6/64GB
+            Bei ya Kuuzia: 250,000
+            Kianzio: 75,000
+            Malipo ya Siku: 1,500
+            Malipo ya Wiki: 10,500
+            Malipo ya Mwezi: 45,000
+        29. Simu: HONOR X7B 256/8GB
+            Bei ya Kuuzia: 500,000
+            Kianzio: 150,000
+            Malipo ya Siku: 2,700
+            Malipo ya Wiki: 18,900
+            Malipo ya Mwezi: 81,000
+        30. Simu: HONOR X6B 256GB/6GB
+            Bei ya Kuuzia: 400,000
+            Kianzio: 120,000
+            Malipo ya Siku: 2,200
+            Malipo ya Wiki: 15,400
+            Malipo ya Mwezi: 66,000
+        31. Simu: HONOR X6B 128GB/6GB
+            Bei ya Kuuzia: 365,000
+            Kianzio: 109,500
+            Malipo ya Siku: 2,000
+            Malipo ya Wiki: 14,000
+            Malipo ya Mwezi: 60,000
+        32. Simu: HONOR X5PLUS 64GB/4GB
+            Bei ya Kuuzia: 280,000
+            Kianzio: 84,000
+            Malipo ya Siku: 1,700
+            Malipo ya Wiki: 11,900
+            Malipo ya Mwezi: 51,000
+        33. Simu: HISENSE E70 PRO 128/4GB
+            Bei ya Kuuzia: 280,000
+            Kianzio: 84,000
+            Malipo ya Siku: 1,700
+            Malipo ya Wiki: 11,900
+            Malipo ya Mwezi: 51,000
+        34. Simu: HISENSE E71 64/4GB
+            Bei ya Kuuzia: 250,000
+            Kianzio: 75,000
+            Malipo ya Siku: 1,500
+            Malipo ya Wiki: 10,500
+            Malipo ya Mwezi: 45,000
+        35. Simu: ZTE A35 4G/64GB
+            Bei ya Kuuzia: 250,000
+            Kianzio: 75,000
+            Malipo ya Siku: 1,500
+            Malipo ya Wiki: 10,500
+            Malipo ya Mwezi: 45,000
+        36. Simu: ZTE A55 4G/128GB
+            Bei ya Kuuzia: 290,000
+            Kianzio: 87,000
+            Malipo ya Siku: 1,700
+            Malipo ya Wiki: 11,900
+            Malipo ya Mwezi: 51,000
+    - text: |
+        Here are the phone prices from OnfonMobile TZ (TZS):
+
+        1. Phone: OPPO A18 4/64GB
+           Selling Price: 300,000
+           Initial: 90,000
+           Daily Payment: 1,700
+           Weekly Payment: 11,900
+           Monthly Payment: 51,000
+        2. Phone: OPPO A18 4/128GB
+           Selling Price: 350,000
+           Initial: 108,000
+           Daily Payment: 2,000
+           Weekly Payment: 14,000
+           Monthly Payment: 60,000
+        3. Phone: OPPO A38 4/128GB
+           Selling Price: 440,000
+           Initial: 132,000
+           Daily Payment: 2,400
+           Weekly Payment: 16,800
+           Monthly Payment: 72,000
+        4. Phone: OPPO A58 6/128GB
+           Selling Price: 510,000
+           Initial: 153,000
+           Daily Payment: 2,700
+           Weekly Payment: 18,900
+           Monthly Payment: 81,000
+        5. Phone: OPPO A58 8/128GB
+           Selling Price: 590,000
+           Initial: 177,000
+           Daily Payment: 3,100
+           Weekly Payment: 21,700
+           Monthly Payment: 93,000
+        6. Phone: OPPO A3X 4/64GB
+           Selling Price: 330,000
+           Initial: 99,000
+           Daily Payment: 1,900
+           Weekly Payment: 13,300
+           Monthly Payment: 57,000
+        7. Phone: OPPO A3X 4/128GB
+           Selling Price: 399,000
+           Initial: 119,700
+           Daily Payment: 2,200
+           Weekly Payment: 15,400
+           Monthly Payment: 66,000
+        8. Phone: VIVO Y28 8/256GB
+           Selling Price: 559,000
+           Initial: 167,700
+           Daily Payment: 3,000
+           Weekly Payment: 21,000
+           Monthly Payment: 90,000
+        9. Phone: VIVO Y18 6/128GB
+           Selling Price: 390,000
+           Initial: 117,000
+           Daily Payment: 2,200
+           Weekly Payment: 15,400
+           Monthly Payment: 66,000
+        10. Phone: VIVO Y03 4/128GB
+            Selling Price: 332,000
+            Initial: 99,600
+            Daily Payment: 1,900
+            Weekly Payment: 13,300
+            Monthly Payment: 57,000
+        11. Phone: VIVO Y03 4/64GB
+            Selling Price: 289,000
+            Initial: 86,700
+            Daily Payment: 1,700
+            Weekly Payment: 11,900
+            Monthly Payment: 51,000
+        12. Phone: VIVO Y19s 6/128GB
+            Selling Price: 380,000
+            Initial: 114,000
+            Daily Payment: 2,100
+            Weekly Payment: 14,700
+            Monthly Payment: 63,000
+        13. Phone: SAMSUNG A05 4/128GB
+            Selling Price: 325,000
+            Initial: 97,500
+            Daily Payment: 1,900
+            Weekly Payment: 13,300
+            Monthly Payment: 57,000
+        14. Phone: SAMSUNG A05 4/64GB
+            Selling Price: 300,000
+            Initial: 90,000
+            Daily Payment: 1,700
+            Weekly Payment: 11,900
+            Monthly Payment: 51,000
+        15. Phone: SAMSUNG A05s 4/64GB
+            Selling Price: 355,000
+            Initial: 106,500
+            Daily Payment: 2,000
+            Weekly Payment: 14,000
+            Monthly Payment: 60,000
+        16. Phone: SAMSUNG A05s 4/128GB
+            Selling Price: 380,000
+            Initial: 114,000
+            Daily Payment: 2,100
+            Weekly Payment: 14,700
+            Monthly Payment: 63,000
+        17. Phone: INFINIX NOTE 30 PRO 8/256GB
+            Selling Price: 480,000
+            Initial: 144,000
+            Daily Payment: 2,600
+            Weekly Payment: 18,200
+            Monthly Payment: 78,000
+        18. Phone: INFINIX SMART 8 3/64GB
+            Selling Price: 269,000
+            Initial: 80,700
+            Daily Payment: 1,600
+            Weekly Payment: 11,200
+            Monthly Payment: 48,000
+        19. Phone: INFINIX SMART 9 4/128GB
+            Selling Price: 328,000
+            Initial: 98,400
+            Daily Payment: 1,900
+            Weekly Payment: 13,300
+            Monthly Payment: 57,000
+        20. Phone: INFINIX HOT50I 4G/128GB
+            Selling Price: 340,000
+            Initial: 102,000
+            Daily Payment: 1,900
+            Weekly Payment: 13,300
+            Monthly Payment: 57,000
+        21. Phone: INFINIX HOT 40i 8/128GB
+            Selling Price: 333,000
+            Initial: 99,900
+            Daily Payment: 1,900
+            Weekly Payment: 13,300
+            Monthly Payment: 57,000
+        22. Phone: INFINIX HOT 50 PRO+ 8/128GB
+            Selling Price: 590,000
+            Initial: 177,000
+            Daily Payment: 3,100
+            Weekly Payment: 21,700
+            Monthly Payment: 93,000
+        23. Phone: TECNO CAMON 30S 128GB/6GB
+            Selling Price: 580,000
+            Initial: 174,000
+            Daily Payment: 3,100
+            Weekly Payment: 21,700
+            Monthly Payment: 93,000
+        24. Phone: TECNO SPARK 30C 128GB/4GB
+            Selling Price: 330,000
+            Initial: 99,000
+            Daily Payment: 1,900
+            Weekly Payment: 13,300
+            Monthly Payment: 57,000
+        25. Phone: REALME C61 6/128GB
+            Selling Price: 350,000
+            Initial: 105,000
+            Daily Payment: 2,000
+            Weekly Payment: 14,000
+            Monthly Payment: 60,000
+        26. Phone: REALME C61 6/256GB
+            Selling Price: 360,000
+            Initial: 108,000
+            Daily Payment: 2,000
+            Weekly Payment: 14,000
+            Monthly Payment: 60,000
+        27. Phone: REALME NOTE 50 4/128GB
+            Selling Price: 290,000
+            Initial: 87,000
+            Daily Payment: 1,700
+            Weekly Payment: 11,900
+            Monthly Payment: 51,000
+        28. Phone: REALME NOTE 50 6/64GB
+            Selling Price: 250,000
+            Initial: 75,000
+            Daily Payment: 1,500
+            Weekly Payment: 10,500
+            Monthly Payment: 45,000
+        29. Phone: HONOR X7B 256/8GB
+            Selling Price: 500,000
+            Initial: 150,000
+            Daily Payment: 2,700
+            Weekly Payment: 18,900
+            Monthly Payment: 81,000
+        30. Phone: HONOR X6B 256GB/6GB
+            Selling Price: 400,000
+            Initial: 120,000
+            Daily Payment: 2,200
+            Weekly Payment: 15,400
+            Monthly Payment: 66,000
+        31. Phone: HONOR X6B 128GB/6GB
+            Selling Price: 365,000
+            Initial: 109,500
+            Daily Payment: 2,000
+            Weekly Payment: 14,000
+            Monthly Payment: 60,000
+        32. Phone: HONOR X5PLUS 64GB/4GB
+            Selling Price: 280,000
+            Initial: 84,000
+            Daily Payment: 1,700
+            Weekly Payment: 11,900
+            Monthly Payment: 51,000
+        33. Phone: HISENSE E70 PRO 128/4GB
+            Selling Price: 280,000
+            Initial: 84,000
+            Daily Payment: 1,700
+            Weekly Payment: 11,900
+            Monthly Payment: 51,000
+        34. Phone: HISENSE E71 64/4GB
+            Selling Price: 250,000
+            Initial: 75,000
+            Daily Payment: 1,500
+            Weekly Payment: 10,500
+            Monthly Payment: 45,000
+        35. Phone: ZTE A35 4G/64GB
+            Selling Price: 250,000
+            Initial: 75,000
+            Daily Payment: 1,500
+            Weekly Payment: 10,500
+            Monthly Payment: 45,000
+        36. Phone: ZTE A55 4G/128GB
+            Selling Price: 290,000
+            Initial: 87,000
+            Daily Payment: 1,700
+            Weekly Payment: 11,900
+            Monthly Payment: 51,000
+  utter_sync_portal_users_success:
+    - text: "Data ya wateja imesawazishwa kwa mafanikio na portal."
+    - text: "User data synchronized successfully with the portal."
+  utter_sync_portal_users_failure:
+    - text: "Imeshindwa kusawazisha data ya wateja. Jaribu tena baadaye."
+    - text: "Failed to sync user data. Please try again later."
+  utter_sync_portal_users_error:
+    - text: "Hitilafu katika kusawazisha data: {error}"
+    - text: "Error syncing user data: {error}"
+  utter_fallback:
+    - text: "Samahani, sijauelewa swali lako. Tafadhali jaribu tena au uliza kwa njia nyingine."
+    - text: "Sorry, I didn’t understand your question. Please try again or ask differently."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

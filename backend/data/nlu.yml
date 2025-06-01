@@ -1,0 +1,426 @@
+
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - mambo
+    - Mambo
+    - mambo vipi
+    - habari
+    - Habari yako
+    - habari za asubuhi
+    - jambo
+    - Jambo vipi
+    - salaam
+    - vipi
+    - Vipi sasa
+    - za asubuhi
+    - za mchana
+    - za jioni
+    - za usiku
+    - habari za mchana
+    - habari za jioni
+    - sasa
+    - poa
+    - shikamoo
+    - niaje
+    - salama
+    - heko
+    - safi
+    - kipekee
+    - karibu
+    - hi
+    - Hi
+    - hello
+    - Hello
+    - hey
+    - Hey
+    - good morning
+    - Goodmorning
+    - good afternoon
+    - good evening
+    - morning
+    - afternoon
+    - evening
+    - what's up
+    - sup
+    - yo
+    - greetings
+    - howdy
+    - hiya
+    - good day
+    - hello there
+    - hey there
+    - hi there
+    - good night
+    - night
+    - cheers
+    - aloha
+    - welcome
+    - how's it going
+- intent: ask_sales_process
+  examples: |
+    - Nawezaje kufanya mauzo ya simu?
+    - Mchakato wa mauzo ni upi?
+    - Nifanye nini ili niuzie simu?
+    - Je, mauzo yanafanyika vipi?
+    - Ninawezaje kuuza simu kwa wateja?
+    - Mchakato wa kuuza simu ni upi?
+    - Nianzie wapi kuuza simu?
+    - Je, ni hatua gani za mauzo?
+    - Mauzo ya simu yanahitaji nini?
+    - Ninawezaje kuanza mauzo?
+    - Mteja anapaswa kufanya nini kwa mauzo?
+    - Je, ni mchakato gani wa mauzo?
+    - Nifuate hatua zipi kuuza simu?
+    - Mauzo yanahitaji maandalizi gani?
+    - Je, ninauzaje simu kwa usahihi?
+    - Mchakato wa mauzo unahusisha nini?
+    - Ninawezaje kumudu mauzo ya simu?
+    - Hatua za mauzo za simu ni zipi?
+    - Je, ni vipi ninaweza kuuza simu?
+    - Mauzo ya simu yanafanyaje?
+    - Nifanyeje ili mauzo yaende sawa?
+    - Je, mauzo ya simu yanajumuisha nini?
+    - Ninawezaje kushiriki katika mauzo?
+    - Mchakato wa mauzo unachukua muda gani?
+    - Je, ni nini kinachohitajika kwa mauzo?
+    - How do I sell phones?
+    - What’s the sales process?
+    - How can I start selling phones?
+    - What steps do I follow to sell a phone?
+    - How does phone selling work?
+    - What’s needed to sell phones?
+    - Can you explain the sales process?
+    - How do I handle phone sales?
+    - What’s the procedure for selling phones?
+    - How do I begin selling phones?
+    - What do customers need for sales?
+    - Tell me about phone sales steps
+    - How do I sell a phone correctly?
+    - What’s involved in phone sales?
+    - How can I manage phone sales?
+    - What are the phone sales steps?
+    - How do I conduct phone sales?
+    - What does selling phones involve?
+    - How do I ensure smooth sales?
+    - What’s required for phone sales?
+    - How long does the sales process take?
+    - Tell me how to sell phones
+    - What are the stages of phone sales?
+    - How do I participate in phone sales?
+    - What do I need to know about selling phones?
+- intent: ask_payment_methods
+  examples: |
+    - Je, ni njia gani za malipo zinazokubalika?
+    - Nitalipaje kwa simu?
+    - Malipo yanafanyika vipi?
+    - Ninawezaje kulipa simu?
+    - Je, kuna njia zipi za malipo?
+    - Malipo ya simu yanakubali vipi?
+    - Nitalipa kwa njia gani?
+    - Je, naweza kulipa vipi?
+    - Malipo yanahitaji nini?
+    - Ninawezaje kufanya malipo?
+    - Je, ni chaguzi gani za malipo?
+    - Malipo ya simu yanafanyaje?
+    - Nitalipaje malipo ya awali?
+    - Je, kuna malipo ya moja kwa moja?
+    - Ninawezaje kulipa kwa wiki?
+    - Malipo ya mwezi yanafanyika vipi?
+    - Je, naweza kulipa kwa siku?
+    - Malipo yanakubali kadi gani?
+    - Nifanye nini kulipa simu?
+    - Je, malipo ya simu ni rahisi?
+    - Ninawezaje kulipa haraka?
+    - Malipo ya simu yanachukua muda gani?
+    - Je, kuna malipo ya digital?
+    - Nitalipa vipi kwa OnfonMobile?
+    - Malipo yanahitaji maelezo gani?
+    - What are the payment methods?
+    - How can I pay for the phone?
+    - What payment options are available?
+    - How do I make payments?
+    - What’s the payment process?
+    - Can you tell me about payment methods?
+    - How do I pay for a phone?
+    - What types of payments are accepted?
+    - How do payments work?
+    - What do I need to make a payment?
+    - How can I pay quickly?
+    - What are the payment choices?
+    - How do I pay the initial amount?
+    - Are there daily payment options?
+    - How do weekly payments work?
+    - What about monthly payments?
+    - Can I pay with a card?
+    - How do I complete a payment?
+    - Are phone payments easy?
+    - How long does payment processing take?
+    - Are digital payments accepted?
+    - How do I pay through OnfonMobile?
+    - What details are needed for payments?
+    - Tell me about phone payment options
+    - Can I pay in installments?
+- intent: ask_maintenance
+  examples: |
+    - Je, ninawezaje kutunza simu?
+    - Simu inahitaji matengenezo gani?
+    - Nifanye nini ili simu idumu?
+    - Je, ni vipi ninaweza kutunza simu?
+    - Matengenezo ya simu ni yapi?
+    - Ninawezaje kuhakikisha simu iko salama?
+    - Je, kuna vidokezo vya kutunza simu?
+    - Simu inapaswa kutunzwa vipi?
+    - Nifanyeje ili simu isiharibike?
+    - Je, ni nini kinachohitajika kwa matengenezo?
+    - Ninawezaje kulinda simu yangu?
+    - Vidokezo vya matengenezo ni vipi?
+    - Je, simu inahitaji huduma gani?
+    - Nifanye nini kwa simu iwe sawa?
+    - Matengenezo ya simu yanafanyaje?
+    - Ninawezaje kuepuka uharibifu wa simu?
+    - Je, kuna ushauri wa kutunza simu?
+    - Simu inahitaji kumudu vipi?
+    - Nifanyeje ili simu iendelee vizuri?
+    - Je, ni huduma gani za simu?
+    - Ninawezaje kuangalia simu yangu?
+    - Matengenezo ya simu yanachukua muda gani?
+    - Je, kuna mambo ya kuepuka kwa simu?
+    - Nifanye nini kwa simu isiyofanya vizuri?
+    - Ushauri wa matengenezo ni upi?
+    - How do I maintain my phone?
+    - What maintenance does a phone need?
+    - How can I keep my phone in good condition?
+    - What are phone maintenance tips?
+    - How do I care for my phone?
+    - What’s needed to maintain a phone?
+    - How can I protect my phone?
+    - What are the ways to maintain a phone?
+    - How do I prevent phone damage?
+    - What maintenance services are required?
+    - How do I ensure my phone lasts long?
+    - What tips are there for phone care?
+    - How do I keep my phone safe?
+    - What should I do for phone maintenance?
+    - How is phone maintenance done?
+    - How can I avoid phone damage?
+    - Are there phone care suggestions?
+    - How do I manage phone maintenance?
+    - What do I do to keep my phone working?
+    - What phone services are needed?
+    - How do I check my phone’s condition?
+    - How long does phone maintenance take?
+    - Are there things to avoid for phone care?
+    - What do I do if my phone isn’t working well?
+    - What’s the advice for phone maintenance?
+- intent: ask_lost_phone
+  examples: |
+    - Nifanye nini ikiwa nimepoteza simu?
+    - Simu yangu imepotea, nifanye nini?
+    - Je, ninawezaje kupata simu iliyopotea?
+    - Nifuate hatua zipi simu ikipotea?
+    - Simu imepotea, nianzie wapi?
+    - Je, kuna msaada kwa simu iliyopotea?
+    - Nifanyeje ikiwa simu haipatikani?
+    - Simu yangu haionekani, nifanye nini?
+    - Je, ni vipi ninaweza kushughulikia simu iliyopotea?
+    - Nifanye nini simu ikiwa imepotea?
+    - Simu imepotea, nitaipataje?
+    - Je, kuna ushauri kwa simu iliyopotea?
+    - Nifanye nini ikiwa simu yangu imepotea?
+    - Simu haipatikani, nifanyeje?
+    - Je, ni hatua gani za simu iliyopotea?
+    - Nifanye nini simu isipopatikana?
+    - Simu yangu imepotea, nipe ushauri
+    - Je, ninawezaje kuripoti simu iliyopotea?
+    - Nifanyeje simu ikipotea ghafla?
+    - Simu imepotea, nitaifuatiliaje?
+    - Je, kuna njia ya kupata simu iliyopotea?
+    - Nifanye nini baada ya kupoteza simu?
+    - Simu yangu haipo, nifanye nini?
+    - Je, ni vipi ninaweza kufanya simu ikipotea?
+    - Ushauri wa simu iliyopotea ni upi?
+    - What should I do if I lost my phone?
+    - My phone is lost, what do I do?
+    - How can I find a lost phone?
+    - What steps do I take if my phone is lost?
+    - My phone is missing, where do I start?
+    - Is there help for a lost phone?
+    - What do I do if my phone is gone?
+    - My phone isn’t showing up, what now?
+    - How do I handle a lost phone?
+    - What should I do if my phone disappears?
+    - My phone is lost, how do I recover it?
+    - Any advice for a lost phone?
+    - What do I do if my phone is missing?
+    - My phone isn’t found, what’s next?
+    - What are the steps for a lost phone?
+    - What do I do if my phone can’t be found?
+    - My phone is gone, give me advice
+    - How do I report a lost phone?
+    - What do I do if my phone is suddenly lost?
+    - My phone is lost, how do I track it?
+    - Is there a way to find a lost phone?
+    - What do I do after losing my phone?
+    - My phone isn’t here, what should I do?
+    - How can I deal with a lost phone?
+    - What’s the advice for a lost phone?
+- intent: ask_bot_identity
+  examples: |
+    - Wewe ni nani?
+    - Wewe ni chatbot gani?
+    - Je, wewe ni nani hasa?
+    - Ni nani huyu ninayezungumza naye?
+    - Wewe ni programu gani?
+    - Je, una jina gani?
+    - Ni chatbot gani hii?
+    - Wewe ni bot ya aina gani?
+    - Je, wewe ni robot?
+    - Ni nani anayejibu maswali yangu?
+    - Wewe ni nani OnfonMobile?
+    - Je, wewe ni mtu au bot?
+    - Ni nani huyu anayezungumza nami?
+    - Wewe ni programu ya kusaidia vipi?
+    - Je, unawezaje kunisaidia?
+    - Ni bot gani hii ya OnfonMobile?
+    - Wewe ni nani kwenye mfumo huu?
+    - Je, wewe ni AI au mtu?
+    - Ni nani anayesimamia hii chatbot?
+    - Wewe ni bot ya kufanya nini?
+    - Je, wewe ni msaidizi wa kidigitali?
+    - Ni nani aliyekutengeneza?
+    - Wewe ni bot ya kusudi gani?
+    - Je, wewe ni msaidizi wa mauzo?
+    - Ni nani huyu anayejibu hapa?
+    - Who are you?
+    - What kind of chatbot are you?
+    - Who exactly are you?
+    - Who am I talking to?
+    - What program are you?
+    - What’s your name?
+    - What chatbot is this?
+    - What type of bot are you?
+    - Are you a robot?
+    - Who’s answering my questions?
+    - Are you OnfonMobile’s bot?
+    - Are you a person or a bot?
+    - Who’s this I’m chatting with?
+    - How does your program help?
+    - How can you assist me?
+    - What’s this OnfonMobile bot?
+    - Who are you in this system?
+    - Are you AI or human?
+    - Who manages this chatbot?
+    - What’s the purpose of this bot?
+    - Are you a digital assistant?
+    - Who created you?
+    - What’s this bot designed for?
+    - Are you a sales assistant?
+    - Who’s responding here?
+- intent: lock_phone
+  examples: |
+    - Je, ninawezaje kulock simu?
+    - Mchakato wa kulock simu ni upi?
+    - Ninawezaje kufunga simu?
+    - Je, simu inalock vipi?
+    - Nifanye nini kulock simu?
+    - Kulock simu kunahitaji nini?
+    - Je, ni hatua gani za kulock simu?
+    - Ninawezaje kuhakikisha simu imelock?
+    - Simu inafungwa vipi?
+    - Je, kuna mchakato wa kulock simu?
+    - Nifanyeje ili simu ilock?
+    - Kulock simu kunafanyaje?
+    - Je, ni vipi ninaweza kulock simu?
+    - Hatua za kulock simu ni zipi?
+    - Ninawezaje kufunga simu kwa usalama?
+    - Je, simu inalindwa vipi kwa lock?
+    - Nifanye nini kufunga simu?
+    - Kulock simu kunachukua muda gani?
+    - Je, kuna vidokezo vya kulock simu?
+    - Ninawezaje kulock simu kwa haraka?
+    - Mchakato wa kufunga simu ni upi?
+    - Je, ni nini kinachohitajika kulock simu?
+    - Nifanyeje simu ikae salama kwa lock?
+    - Kulock simu kunahusisha nini?
+    - Je, kuna ushauri wa kulock simu?
+    - How do I lock the phone?
+    - What’s the process to lock a phone?
+    - How can I secure the phone?
+    - How is the phone locked?
+    - What do I do to lock the phone?
+    - What’s needed to lock a phone?
+    - What are the steps to lock a phone?
+    - How do I ensure the phone is locked?
+    - How does phone locking work?
+    - Is there a process to lock the phone?
+    - How do I make the phone lock?
+    - How is locking the phone done?
+    - How can I lock the phone?
+    - What are the phone locking steps?
+    - How do I lock the phone securely?
+    - How is the phone protected by locking?
+    - What should I do to secure the phone?
+    - How long does it take to lock a phone?
+    - Are there tips for locking the phone?
+    - How can I lock the phone quickly?
+    - What’s the procedure for locking a phone?
+    - What’s required to lock a phone?
+    - How do I keep the phone safe with a lock?
+    - What’s involved in locking a phone?
+    - Any advice for locking the phone?
+- intent: phone_pricing
+  examples: |
+    -vianzio vya simu
+    - Je, bei za simu ni zipi?
+    - Bei ya simu ni kiasi gani?
+    - Ninawezaje kujua bei za simu?
+    - Je, simu zinagharimu kiasi gani?
+    - Bei za simu za OnfonMobile ni zipi?
+    - Nipe orodha ya bei za simu
+    - Je, kuna bei gani za simu?
+    - Simu zinapatikana kwa bei gani?
+    - Ninawezaje kuangalia bei za simu?
+    - Je, ni gharama gani za simu?
+    - Bei za simu zinajumuisha nini?
+    - Nipe maelezo ya bei za simu
+    - Je, simu za bei nafuu ziko?
+    - Bei ya simu inaweza kuwa kiasi gani?
+    - Ninawezaje kupata bei za simu?
+    - Je, kuna orodha ya bei za simu?
+    - Simu zinagharimu vipi?
+    - Nipe bei za simu zote
+    - Je, bei za simu ni rahisi?
+    - Bei ya simu inaanza wapi?
+    - Ninawezaje kujua gharama za simu?
+    - Je, kuna bei za simu za chini?
+    - Bei za simu zinatofautiana vipi?
+    - Nipe ushauri wa bei za simu
+    - Je, simu zinagharimu kiasi gani kwa OnfonMobile?
+    - What are the phone prices?
+    - How much do phones cost?
+    - How can I know phone prices?
+    - What’s the cost of phones?
+    - What are OnfonMobile’s phone prices?
+    - Give me a list of phone prices
+    - What prices are available for phones?
+    - How much are phones priced at?
+    - How do I check phone prices?
+    - What are the phone costs?
+    - What do phone prices include?
+    - Tell me about phone pricing details
+    - Are there affordable phone prices?
+    - How much can a phone cost?
+    - How do I find phone prices?
+    - Is there a phone price list?
+    - How are phones priced?
+    - Show me all phone prices
+    - Are phone prices reasonable?
+    - Where do phone prices start?
+    - How do I know the cost of phones?
+    - Are there low-cost phone prices?
+    - How do phone prices vary?
+    - Give me advice on phone pricing
+    - How much do phones cost at OnfonMobile?
