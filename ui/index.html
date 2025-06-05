@@ -17,7 +17,7 @@
             font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
-            background: #121212;
+            background: #ffffff;
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
@@ -32,8 +32,8 @@
             display: flex;
             max-width: 800px;
             margin: 0 auto;
-            background: #1c2526;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            background: #f2f2f7;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             border-radius: 1.5rem;
             overflow: hidden;
         }
@@ -110,7 +110,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: #1c2526;
+            background: #f2f2f7;
             overflow: hidden;
             padding-top: clamp(5rem, 15vw, 6.5rem);
         }
@@ -122,7 +122,6 @@
             scrollbar-width: thin;
             overscroll-behavior: contain;
             -webkit-overflow-scrolling: touch;
-            background: #1c2526;
         }
 
         #chat-messages::-webkit-scrollbar {
@@ -130,7 +129,7 @@
         }
 
         #chat-messages::-webkit-scrollbar-thumb {
-            background: #6be88a; /* Fainter user message color */
+           
             border-radius: 3px;
         }
 
@@ -162,17 +161,16 @@
             line-height: 1.5;
             white-space: pre-wrap;
             word-wrap: break-word;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .message-content:hover {
             transform: scale(1.02);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .user-message .message-content {
-            background: #6be88a; /* Fainter green */
-            color: #121212; /* Dark text for contrast */
+           
+            color:black;
             border-bottom-right-radius: 4px;
         }
 
@@ -182,8 +180,8 @@
         }
 
         .bot-message .message-content {
-            background: #e88a8a; /* Fainter maroon */
-            color: #121212;
+            
+            color:black;
             border-bottom-left-radius: 4px;
         }
 
@@ -196,18 +194,17 @@
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            color: #e0e0e0;
+            color: black;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-            background: #2a2f32;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
         }
 
         .price-table th,
         .price-table td {
             padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid #3a3f42;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         [dir="rtl"] .price-table th,
@@ -216,17 +213,17 @@
         }
 
         .price-table th {
-            background: #6be88a; /* Fainter green */
-            color: #121212;
+            background: #34c759;
+            color: black;
             font-weight: 600;
         }
 
         .price-table tr:nth-child(even) {
-            background: #2f3538;
+            background: #f9fafb;
         }
 
         .price-table tr:hover {
-            background: #3a3f42;
+            background: #f1f5f9;
         }
 
         .price-table-container {
@@ -236,13 +233,13 @@
 
         /* Profile Circle */
         .profile-circle {
-            width: 3rem;
+            width: 3rem; /* Increased size */
             height: 3rem;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.25rem;
+            font-size: 1.25rem; /* Adjusted for user 'U' */
             font-weight: 600;
             color: #ffffff;
             flex-shrink: 0;
@@ -251,19 +248,19 @@
         }
 
         .user-message .profile-circle {
-            background: #6be88a; /* Fainter green */
+            background: #34c759; /* Keep user background */
             border: none;
         }
 
         .bot-message .profile-circle {
-            background: #ffffff; /* White background */
-            border: 2px solid #ff0000;
+            background: none; /* No background for bot */
+            border: 2px solid #ff0000; /* Red border */
         }
 
         .profile-circle img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: contain; /* Changed to contain for logo clarity */
             border-radius: 50%;
             transition: transform 0.3s ease;
         }
@@ -279,16 +276,16 @@
             margin: 1rem;
             display: flex;
             align-items: center;
-            background: #2a2f32;
+            background: #ffffff;
             border-radius: 22px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             padding: 0.5rem;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
 
         .input-wrapper:focus-within {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transform: translateY(-1px);
         }
 
         #user-input {
@@ -297,7 +294,6 @@
             outline: none;
             padding: 0.75rem 1.25rem;
             font-size: 1rem;
-            color: #e0e0e0;
             background: transparent;
             border-radius: 18px;
             resize: none;
@@ -309,13 +305,14 @@
         }
 
         #user-input::placeholder {
-            color: #8a929a;
+            color: #8e8e93;
             opacity: 0.8;
         }
 
         #send-button {
-            background: #6be88a; /* Fainter green */
-            color: #121212;
+            display: none;
+            background: #34c759;
+            color: #ffffff;
             border: none;
             width: 2.25rem;
             height: 2.25rem;
@@ -327,7 +324,6 @@
             text-align: center;
             transition: all 0.3s ease;
             flex-shrink: 0;
-            display: none;
         }
 
         #send-button.active {
@@ -336,7 +332,7 @@
 
         #send-button:hover,
         #send-button:focus {
-            background: #5ad679; /* Slightly darker faint green */
+            background: #2ea44f;
             transform: scale(1.1);
             outline: none;
         }
@@ -346,8 +342,8 @@
             padding: 0.75rem 1.25rem;
             margin: 0.75rem 0 0.75rem 3.25rem;
             max-width: 75%;
-            background: #3a3f42;
-            color: #e0e0e0;
+            background: #e66464;
+            color: #ffffff;
             border-radius: 18px;
             border-bottom-left-radius: 4px;
             font-size: 1rem;
@@ -369,13 +365,13 @@
         }
 
         @keyframes bubblePop {
-            0% { opacity: 0; transform: scale(0.95) translateY(8px); }
+            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.03); opacity: 0.9; }
+            50% { transform: scale(1.02); opacity: 0.95; }
             100% { transform: scale(1); opacity: 1; }
         }
 
@@ -422,7 +418,7 @@
             }
 
             .profile-circle {
-                width: 2.5rem;
+                width: 2.5rem; /* Slightly smaller for mobile */
                 height: 2.5rem;
                 font-size: 1rem;
             }
@@ -467,53 +463,21 @@
         /* High Contrast Mode */
         @media (prefers-contrast: high) {
             .message-content {
-                border: 1px solid #ffffff;
+                border: 1px solid #000000;
             }
 
             .user-message .message-content {
-                background: #6be88a;
-                color: #000000;
+                background: #34c759;
+                color: #ffffff;
             }
 
             .bot-message .message-content {
-                background: #e88a8a;
-                color: #000000;
+                background: #800000;
+                color: #ffffff;
             }
 
             .bot-message .profile-circle {
-                background: #ffffff;
                 border: 2px solid #ff0000;
-            }
-
-            #chat-messages {
-                background: #000000;
-            }
-
-            .price-table {
-                background: #000000;
-                color: #ffffff;
-            }
-
-            .price-table th {
-                background: #6be88a;
-                color: #000000;
-            }
-
-            .price-table tr:nth-child(even) {
-                background: #1a1a1a;
-            }
-
-            .input-wrapper {
-                background: #1a1a1a;
-            }
-
-            #user-input {
-                color: #ffffff;
-            }
-
-            #typing-indicator {
-                background: #3a3f42;
-                color: #ffffff;
             }
         }
     </style>
