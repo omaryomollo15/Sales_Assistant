@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnfonMobile TZ Sales-Assistant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&family=Inter:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Reset and Base Styles */
@@ -17,7 +17,7 @@
             font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
-            background: #ffffff;
+            background: #ffffff; /* White background for body */
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
@@ -32,7 +32,7 @@
             display: flex;
             max-width: 800px;
             margin: 0 auto;
-            background: #f2f2f7;
+            background: #0B141A; /* Deep dark for chat page */
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
             border-radius: 1.5rem;
             overflow: hidden;
@@ -110,7 +110,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            background: #f2f2f7;
+            background: #0B141A;
             overflow: hidden;
             padding-top: clamp(5rem, 15vw, 6.5rem);
         }
@@ -119,18 +119,14 @@
             flex-grow: 1;
             overflow-y: auto;
             padding: 2rem;
-            scrollbar-width: thin;
+            scrollbar-width: none; /* Hide scrollbar */
             overscroll-behavior: contain;
             -webkit-overflow-scrolling: touch;
+            background: #0B141A;
         }
 
         #chat-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        #chat-messages::-webkit-scrollbar-thumb {
-           
-            border-radius: 3px;
+            display: none; /* Hide scrollbar */
         }
 
         /* Message Styles */
@@ -138,7 +134,7 @@
             display: flex;
             align-items: flex-end;
             margin: 0.75rem 0;
-            animation: bubblePop 0.3s ease-out;
+            animation: bubblePop 0.4s ease-out;
         }
 
         [dir="rtl"] .message {
@@ -157,10 +153,12 @@
             max-width: 75%;
             padding: 0.75rem 1.25rem;
             border-radius: 18px;
-            font-size: 1rem;
-            line-height: 1.5;
+            font-family: 'Roboto', sans-serif; /* Elegant font */
+            font-size: 1.05rem; /* Slightly larger */
+            line-height: 1.6; /* Improved readability */
+            letter-spacing: 0.02em; /* Subtle spacing */
             white-space: pre-wrap;
-            word-wrap: break-word;
+            overflow-wrap: break-word;
             transition: transform 0.2s ease;
         }
 
@@ -169,8 +167,8 @@
         }
 
         .user-message .message-content {
-           
-            color:black;
+            background: #F38E8E;
+            color: #121212;
             border-bottom-right-radius: 4px;
         }
 
@@ -180,8 +178,8 @@
         }
 
         .bot-message .message-content {
-            
-            color:black;
+            background: #ffffff;
+            color: #121212;
             border-bottom-left-radius: 4px;
         }
 
@@ -194,17 +192,18 @@
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            color: black;
+            color: #E0E0E0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            background: #1C2526;
         }
 
         .price-table th,
         .price-table td {
             padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #2A2F32;
         }
 
         [dir="rtl"] .price-table th,
@@ -213,17 +212,17 @@
         }
 
         .price-table th {
-            background: #34c759;
-            color: black;
+            background: #F38E8E;
+            color: #121212;
             font-weight: 600;
         }
 
         .price-table tr:nth-child(even) {
-            background: #f9fafb;
+            background: #222A2F;
         }
 
         .price-table tr:hover {
-            background: #f1f5f9;
+            background: #2A2F32;
         }
 
         .price-table-container {
@@ -233,34 +232,26 @@
 
         /* Profile Circle */
         .profile-circle {
-            width: 3rem; /* Increased size */
+            width: 3rem;
             height: 3rem;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.25rem; /* Adjusted for user 'U' */
-            font-weight: 600;
-            color: #ffffff;
             flex-shrink: 0;
             margin: 0 0.75rem;
             overflow: hidden;
         }
 
-        .user-message .profile-circle {
-            background: #34c759; /* Keep user background */
-            border: none;
-        }
-
         .bot-message .profile-circle {
-            background: none; /* No background for bot */
-            border: 2px solid #ff0000; /* Red border */
+            background: #ffffff;
+            border: 2px solid #ff0000;
         }
 
         .profile-circle img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Changed to contain for logo clarity */
+            object-fit: contain;
             border-radius: 50%;
             transition: transform 0.3s ease;
         }
@@ -276,15 +267,15 @@
             margin: 1rem;
             display: flex;
             align-items: center;
-            background: #ffffff;
+            background: #1C2526;
             border-radius: 22px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             padding: 0.5rem;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
 
         .input-wrapper:focus-within {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             transform: translateY(-1px);
         }
 
@@ -294,6 +285,7 @@
             outline: none;
             padding: 0.75rem 1.25rem;
             font-size: 1rem;
+            color: #E0E0E0;
             background: transparent;
             border-radius: 18px;
             resize: none;
@@ -305,13 +297,13 @@
         }
 
         #user-input::placeholder {
-            color: #8e8e93;
-            opacity: 0.8;
+            color: #8A929A;
+            opacity: 0.7;
         }
 
         #send-button {
             display: none;
-            background: #34c759;
+            background: #F38E8E;
             color: #ffffff;
             border: none;
             width: 2.25rem;
@@ -332,7 +324,7 @@
 
         #send-button:hover,
         #send-button:focus {
-            background: #85faa6;
+            background: #E07B7B;
             transform: scale(1.1);
             outline: none;
         }
@@ -342,8 +334,8 @@
             padding: 0.75rem 1.25rem;
             margin: 0.75rem 0 0.75rem 3.25rem;
             max-width: 75%;
-            background: #f38e8e;
-            color: #ffffff;
+            background: #ffffff;
+            color: #121212;
             border-radius: 18px;
             border-bottom-left-radius: 4px;
             font-size: 1rem;
@@ -365,7 +357,7 @@
         }
 
         @keyframes bubblePop {
-            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+            0% { opacity: 0; transform: scale(0.95) translateY(15px); }
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
@@ -407,7 +399,7 @@
 
             .message-content {
                 max-width: 85%;
-                font-size: 0.9375rem;
+                font-size: 0.95rem;
                 padding: 0.625rem 1rem;
             }
 
@@ -418,9 +410,8 @@
             }
 
             .profile-circle {
-                width: 2.5rem; /* Slightly smaller for mobile */
+                width: 2.5rem;
                 height: 2.5rem;
-                font-size: 1rem;
             }
 
             .profile-circle img {
@@ -467,17 +458,28 @@
             }
 
             .user-message .message-content {
-                background: #34c759;
-                color: #ffffff;
+                background: #F38E8E;
+                color: #000000;
             }
 
             .bot-message .message-content {
-                background: #800000;
-                color: #ffffff;
+                background: #ffffff;
+                color: #000000;
             }
 
             .bot-message .profile-circle {
+                background: #ffffff;
                 border: 2px solid #ff0000;
+            }
+
+            .price-table {
+                background: #1C2526;
+                color: #ffffff;
+            }
+
+            .price-table th {
+                background: #F38E8E;
+                color: #000000;
             }
         }
     </style>
@@ -530,7 +532,7 @@
             const thead = document.createElement('thead');
             thead.innerHTML = `
                 <tr>
-                    <th scope="col">Phone Model</th>
+                    <th scope="col">Model</th>
                     <th scope="col">Price</th>
                 </tr>
             `;
@@ -555,10 +557,6 @@
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message', isUser ? 'user-message' : 'bot-message');
             
-            const profileDiv = document.createElement('div');
-            profileDiv.classList.add('profile-circle');
-            profileDiv.innerHTML = isUser ? 'U' : `<img src="./images/logo.png" alt="OnfonMobile TZ Bot Logo">`;
-            
             const contentDiv = document.createElement('div');
             contentDiv.classList.add('message-content');
             
@@ -568,14 +566,14 @@
                 contentDiv.appendChild(content);
             }
             
-            if (isUser) {
-                messageDiv.appendChild(contentDiv);
+            if (!isUser) {
+                const profileDiv = document.createElement('div');
+                profileDiv.classList.add('profile-circle');
+                profileDiv.innerHTML = `<img src="./images/logo.png" alt="OnfonMobile TZ Bot Logo">`;
                 messageDiv.appendChild(profileDiv);
-            } else {
-                messageDiv.appendChild(profileDiv);
-                messageDiv.appendChild(contentDiv);
             }
             
+            messageDiv.appendChild(contentDiv);
             chatContainer.appendChild(messageDiv);
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
