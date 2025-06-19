@@ -1,2 +1,2 @@
 action_endpoint:
-  url: "http://localhost:5055/webhook"
+  url: "https://rasa-backend-nqu7.onrender.com:5055/webhook"
