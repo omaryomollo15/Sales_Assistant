@@ -1,14 +1,9 @@
 rasa==3.6.0
 rasa-sdk==3.6.0
-PyYAML==6.0.1  # Updated
-numpy==1.23.5  # Keep for now, consider 1.26.4 if compatible
-packaging==24.1  # Updated
-aio-pika==9.4.3  # Updated
-pytesseract==0.3.13  # Updated
-pdf2image==1.17.0  # Latest, keep if needed
-pdfminer.six==20240706  # Updated
-pdfplumber==0.11.4  # Updated
-pillow==10.4.0  # Latest, keep
-Cython==3.0.11  # Updated
+PyYAML==6.0.1
+numpy==1.23.5
+packaging==24.1
+aio-pika==9.4.3
+Cython==3.0.11
 pip>=25.1.1
 setuptools<81
