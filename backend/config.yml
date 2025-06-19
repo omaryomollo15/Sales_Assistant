@@ -19,5 +19,5 @@ policies:
 - name: RulePolicy
 - name: TEDPolicy
   max_history: 5
-  epochs: 100
+  epochs: 50
 assistant_id: 20250618-154718-quiet-debit
