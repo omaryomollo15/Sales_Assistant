@@ -2,6 +2,7 @@ version: "3.1"
 recipe: default.v1
 language: sw
 pipeline:
+<<<<<<< HEAD
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
@@ -11,6 +12,20 @@ pipeline:
     epochs: 30
     constrain_similarities: true
   - name: EntitySynonymMapper
+=======
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 50
+  constrain_similarities: true
+- name: EntitySynonymMapper
+>>>>>>> c908b8382920582635535a4c3829019abfdd1a07
 policies:
   - name: MemoizationPolicy
   - name: RulePolicy
