@@ -1,6 +1,4 @@
-
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
@@ -30,37 +28,14 @@ nlu:
     - safi
     - kipekee
     - karibu
-    - hi
-    - Hi
-    - hello
-    - Hello
-    - hey
-    - Hey
-    - good morning
-    - Goodmorning
-    - good afternoon
-    - good evening
-    - morning
-    - afternoon
-    - evening
-    - what's up
-    - sup
-    - yo
-    - greetings
-    - howdy
-    - hiya
-    - good day
-    - hello there
-    - hey there
-    - hi there
-    - good night
-    - night
-    - cheers
-    - aloha
-    - welcome
-    - how's it going
 - intent: ask_sales_process
   examples: |
+    -jinsi ya kukopesha simu.
+    -mkopo wa simu
+    -kukopa simu
+    -kukopesha simu
+    -nakopesha
+    -kopesha
     - Nawezaje kufanya mauzo ya simu?
     - Mchakato wa mauzo ni upi?
     - Nifanye nini ili niuzie simu?
@@ -86,33 +61,17 @@ nlu:
     - Ninawezaje kushiriki katika mauzo?
     - Mchakato wa mauzo unachukua muda gani?
     - Je, ni nini kinachohitajika kwa mauzo?
-    - How do I sell phones?
-    - What’s the sales process?
-    - How can I start selling phones?
-    - What steps do I follow to sell a phone?
-    - How does phone selling work?
-    - What’s needed to sell phones?
-    - Can you explain the sales process?
-    - How do I handle phone sales?
-    - What’s the procedure for selling phones?
-    - How do I begin selling phones?
-    - What do customers need for sales?
-    - Tell me about phone sales steps
-    - How do I sell a phone correctly?
-    - What’s involved in phone sales?
-    - How can I manage phone sales?
-    - What are the phone sales steps?
-    - How do I conduct phone sales?
-    - What does selling phones involve?
-    - How do I ensure smooth sales?
-    - What’s required for phone sales?
-    - How long does the sales process take?
-    - Tell me how to sell phones
-    - What are the stages of phone sales?
-    - How do I participate in phone sales?
-    - What do I need to know about selling phones?
 - intent: ask_payment_methods
   examples: |
+    - simu ya mteja imefungwa
+    -imefungwa
+    -imefungiwa
+    -simu ya mteja imefungiwa
+    -imezimwa
+    -simu ya mteja imezimwa
+    -malipo
+    -kufanya malipo
+    -kufanyamalipo
     - Je, ni njia gani za malipo zinazokubalika?
     - Nitalipaje kwa simu?
     - Malipo yanafanyika vipi?
@@ -138,33 +97,13 @@ nlu:
     - Je, kuna malipo ya digital?
     - Nitalipa vipi kwa OnfonMobile?
     - Malipo yanahitaji maelezo gani?
-    - What are the payment methods?
-    - How can I pay for the phone?
-    - What payment options are available?
-    - How do I make payments?
-    - What’s the payment process?
-    - Can you tell me about payment methods?
-    - How do I pay for a phone?
-    - What types of payments are accepted?
-    - How do payments work?
-    - What do I need to make a payment?
-    - How can I pay quickly?
-    - What are the payment choices?
-    - How do I pay the initial amount?
-    - Are there daily payment options?
-    - How do weekly payments work?
-    - What about monthly payments?
-    - Can I pay with a card?
-    - How do I complete a payment?
-    - Are phone payments easy?
-    - How long does payment processing take?
-    - Are digital payments accepted?
-    - How do I pay through OnfonMobile?
-    - What details are needed for payments?
-    - Tell me about phone payment options
-    - Can I pay in installments?
 - intent: ask_maintenance
   examples: |
+    -nimeharibu simu
+    -mteja ameharibu simu
+    -simu ya mteja imeharibika
+    -imeharibika
+    -haribu
     - Je, ninawezaje kutunza simu?
     - Simu inahitaji matengenezo gani?
     - Nifanye nini ili simu idumu?
@@ -190,33 +129,12 @@ nlu:
     - Je, kuna mambo ya kuepuka kwa simu?
     - Nifanye nini kwa simu isiyofanya vizuri?
     - Ushauri wa matengenezo ni upi?
-    - How do I maintain my phone?
-    - What maintenance does a phone need?
-    - How can I keep my phone in good condition?
-    - What are phone maintenance tips?
-    - How do I care for my phone?
-    - What’s needed to maintain a phone?
-    - How can I protect my phone?
-    - What are the ways to maintain a phone?
-    - How do I prevent phone damage?
-    - What maintenance services are required?
-    - How do I ensure my phone lasts long?
-    - What tips are there for phone care?
-    - How do I keep my phone safe?
-    - What should I do for phone maintenance?
-    - How is phone maintenance done?
-    - How can I avoid phone damage?
-    - Are there phone care suggestions?
-    - How do I manage phone maintenance?
-    - What do I do to keep my phone working?
-    - What phone services are needed?
-    - How do I check my phone’s condition?
-    - How long does phone maintenance take?
-    - Are there things to avoid for phone care?
-    - What do I do if my phone isn’t working well?
-    - What’s the advice for phone maintenance?
 - intent: ask_lost_phone
   examples: |
+    -simu ya mteja imepotea.
+    -Nimepoteza simu.
+    -Imeibiwa
+    -Nimeibiwa
     - Nifanye nini ikiwa nimepoteza simu?
     - Simu yangu imepotea, nifanye nini?
     - Je, ninawezaje kupata simu iliyopotea?
@@ -242,33 +160,9 @@ nlu:
     - Simu yangu haipo, nifanye nini?
     - Je, ni vipi ninaweza kufanya simu ikipotea?
     - Ushauri wa simu iliyopotea ni upi?
-    - What should I do if I lost my phone?
-    - My phone is lost, what do I do?
-    - How can I find a lost phone?
-    - What steps do I take if my phone is lost?
-    - My phone is missing, where do I start?
-    - Is there help for a lost phone?
-    - What do I do if my phone is gone?
-    - My phone isn’t showing up, what now?
-    - How do I handle a lost phone?
-    - What should I do if my phone disappears?
-    - My phone is lost, how do I recover it?
-    - Any advice for a lost phone?
-    - What do I do if my phone is missing?
-    - My phone isn’t found, what’s next?
-    - What are the steps for a lost phone?
-    - What do I do if my phone can’t be found?
-    - My phone is gone, give me advice
-    - How do I report a lost phone?
-    - What do I do if my phone is suddenly lost?
-    - My phone is lost, how do I track it?
-    - Is there a way to find a lost phone?
-    - What do I do after losing my phone?
-    - My phone isn’t here, what should I do?
-    - How can I deal with a lost phone?
-    - What’s the advice for a lost phone?
 - intent: ask_bot_identity
   examples: |
+    -unafanya kazi gani?
     - Wewe ni nani?
     - Wewe ni chatbot gani?
     - Je, wewe ni nani hasa?
@@ -294,33 +188,18 @@ nlu:
     - Wewe ni bot ya kusudi gani?
     - Je, wewe ni msaidizi wa mauzo?
     - Ni nani huyu anayejibu hapa?
-    - Who are you?
-    - What kind of chatbot are you?
-    - Who exactly are you?
-    - Who am I talking to?
-    - What program are you?
-    - What’s your name?
-    - What chatbot is this?
-    - What type of bot are you?
-    - Are you a robot?
-    - Who’s answering my questions?
-    - Are you OnfonMobile’s bot?
-    - Are you a person or a bot?
-    - Who’s this I’m chatting with?
-    - How does your program help?
-    - How can you assist me?
-    - What’s this OnfonMobile bot?
-    - Who are you in this system?
-    - Are you AI or human?
-    - Who manages this chatbot?
-    - What’s the purpose of this bot?
-    - Are you a digital assistant?
-    - Who created you?
-    - What’s this bot designed for?
-    - Are you a sales assistant?
-    - Who’s responding here?
-- intent: lock_phone
+- intent: all_lock_solutions
   examples: |
+    - Nipe lock solutions zote
+    - Je, hatua za kulock simu zote ni zipi?
+    - Ninawezaje kuona michakato yote ya kulock?
+    - Nipe maelezo ya lock solutions zote
+    - Hatua za kulock zote ni zipi?
+    - Lock solutions zote zinafanyaje?
+    - Je, ninawezaje kujua hatua za lock zote?
+    - Nipe orodha ya michakato ya kulock simu
+    - Maelezo ya kulock simu zote ni yapi?
+    - Hatua zote za kufunga simu ni zipi?
     - Je, ninawezaje kulock simu?
     - Mchakato wa kulock simu ni upi?
     - Ninawezaje kufunga simu?
@@ -346,34 +225,53 @@ nlu:
     - Nifanyeje simu ikae salama kwa lock?
     - Kulock simu kunahusisha nini?
     - Je, kuna ushauri wa kulock simu?
-    - How do I lock the phone?
-    - What’s the process to lock a phone?
-    - How can I secure the phone?
-    - How is the phone locked?
-    - What do I do to lock the phone?
-    - What’s needed to lock a phone?
-    - What are the steps to lock a phone?
-    - How do I ensure the phone is locked?
-    - How does phone locking work?
-    - Is there a process to lock the phone?
-    - How do I make the phone lock?
-    - How is locking the phone done?
-    - How can I lock the phone?
-    - What are the phone locking steps?
-    - How do I lock the phone securely?
-    - How is the phone protected by locking?
-    - What should I do to secure the phone?
-    - How long does it take to lock a phone?
-    - Are there tips for locking the phone?
-    - How can I lock the phone quickly?
-    - What’s the procedure for locking a phone?
-    - What’s required to lock a phone?
-    - How do I keep the phone safe with a lock?
-    - What’s involved in locking a phone?
-    - Any advice for locking the phone?
+- intent: lock_phone
+  examples: |
+    - Je ninawezaje kulock simu?
+    -nataka kulock simu 
+- intent: specific_lock_phone
+  examples: |
+    - Je ninawezaje kulock simu ya Oppo?
+    -lock oppo
+    - Kulock simu ya Samsung kunafanyaje?
+    -lock samsung
+    - Ninawezaje kufunga simu ya Infinix?
+    -lock infinix
+    - Je simu ya Tecno inalock vipi?
+    -lock tecno
+    -lock vivo
+    -Nifanye nini kulock simu ya Vivo?
+    -v-Trust
+    -v Trust
+    -vtrust
+    -Kulock simu kwa V-Trust kunahitaji nini?
+    -payTrigger
+    -paytriga
+    -pay-trigger
+    -Je Pay Trigger lock inafanyaje?
+    -oguard
+    -o-Guard
+    -oguard
+    -Guard
+    -O-Guard lock ni ya aina gani?
+    -Trustonic
+    -Ninawezaje kuweka Trustonic lock kwenye simu?
+    -thinkadams
+    -think Adam
+    - Je ninawezaje kulock simu kwa Think Adams?
+    - Hatua za kulock simu ya Itel ni zipi?
+    - Kulock simu ya Realme kunafanyaje?
+    - Ninawezaje kufunga simu ya Honor?
+    - Je simu ya ZTE inalock vipi?
+    - V-Trust lock inafanyaje?
+    - Pay Trigger ni nini?
+    - O-Guard lock inatumika vipi?
+    - Trustonic lock ni ya aina gani?
+    - Think Adams lock inafanyaje?
 - intent: phone_pricing
   examples: |
-    -vianzio vya simu
+    -vianzio.
+    -vianzo vya simu.
     - Je, bei za simu ni zipi?
     - Bei ya simu ni kiasi gani?
     - Ninawezaje kujua bei za simu?
@@ -399,28 +297,80 @@ nlu:
     - Bei za simu zinatofautiana vipi?
     - Nipe ushauri wa bei za simu
     - Je, simu zinagharimu kiasi gani kwa OnfonMobile?
-    - What are the phone prices?
-    - How much do phones cost?
-    - How can I know phone prices?
-    - What’s the cost of phones?
-    - What are OnfonMobile’s phone prices?
-    - Give me a list of phone prices
-    - What prices are available for phones?
-    - How much are phones priced at?
-    - How do I check phone prices?
-    - What are the phone costs?
-    - What do phone prices include?
-    - Tell me about phone pricing details
-    - Are there affordable phone prices?
-    - How much can a phone cost?
-    - How do I find phone prices?
-    - Is there a phone price list?
-    - How are phones priced?
-    - Show me all phone prices
-    - Are phone prices reasonable?
-    - Where do phone prices start?
-    - How do I know the cost of phones?
-    - Are there low-cost phone prices?
-    - How do phone prices vary?
-    - Give me advice on phone pricing
-    - How much do phones cost at OnfonMobile?
+- intent: ask_specific_price
+  examples: |
+    - Bei ya OPPO A18 4/64GB ni kiasi gani?
+    - Nipe bei ya VIVO Y28
+    - Samsung A05 inagharimu kiasi gani?
+    - Je, Infinix Smart 8 bei yake ni nini?
+    - Bei ya Realme C61 6/128GB ni ipi?
+    - Tecno Camon 30S inauzwa bei gani?
+    - Nipe bei ya Honor X7B
+    - Hisense E70 Pro bei yake ni kiasi gani?
+    - Je, ZTE A35 inagharimu kiasi gani?
+    - Bei ya OPPO A58 8/128GB ni nini?
+    - Nipe bei ya Vivo Y03 4/64GB
+    - Samsung A05s 4/128GB inauzwa vipi?
+    - Infinix Note 30 Pro bei yake ni ipi?
+    - Realme Note 50 6/64GB inagharimu kiasi gani?
+    - Bei ya Tecno Spark 30C ni nini?
+    -bei za Oppo
+    -bei simu za Oppo
+    -simu za oppo zinauzwaje
+    -nataka kujua bei za oppo
+    - Oppo
+    -bei za Infinix
+    -bei simu za Infinix
+    -simu za infinix zinauzwaje
+    - Infinix
+    -simu za Tecno
+    -bei za simu za Tecno
+    -simu za tecno zinauzwaje
+    -bei za tecno
+    - Tecno
+    -bei za Vivo
+    -simu za vivo zinauzwaje
+    -simu za vivo
+    -bei za Vivo
+    -vianzio vivo
+    - Vivo
+    -vianzio Samsung
+    -bei za Samsung
+    -samsung zinauzwaje
+    -nataka kujua bei za simu za samsung
+    - Samsung
+    -Realme zinauwaje
+    -nataka kujua bei za Realme
+    -realme beigani
+    -simu za realme zinauzwaje
+    - Realme
+    -bei za simu za Honor
+    -simu za honor zinauzwaje
+    -bei za honor
+    -vianzio vya honor
+    - Honor
+    -hisense zinauzwaje
+    -bei za hisense
+    -vianzio vya hisense
+    - Hisense
+    -bei za ZTE
+    -Vianzio vya ZTE
+    -simu za ZTE zianuzwaje?
+    - ZTE
+- intent: thank_you
+  examples: |
+    - Asante
+    - Shukrani
+    - Asante sana
+    - Nashukuru
+    - Shukuru
+    - Asante kweli
+    - Shukrani za dhati
+    - Asante mno
+    - Nashukuru sana
+    - Shukrani nyingi
+    - Asante tena
+    - Shukuru kweli
+    - Asante rafiki
+    - Nashukuru mno
+    - Shukrani za moyo
