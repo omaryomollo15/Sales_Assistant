@@ -2,9 +2,10 @@ FROM rasa/rasa-sdk:3.6.0
 WORKDIR /app
 COPY actions /app/actions
 COPY requirements.actions.txt /app/requirements.txt
+COPY start-actions.sh /app/start-actions.sh
 USER root
 RUN pip install --no-cache-dir -r requirements.txt
+RUN chmod +x /app/start-actions.sh
 USER 1001
-ENV PATH="/opt/venv/bin:$PATH"
 EXPOSE $PORT
-CMD ["rasa-sdk", "--actions", "actions", "--port", "$PORT"]
+CMD ["/app/start-actions.sh"]
