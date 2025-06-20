@@ -6,4 +6,4 @@ USER root
 RUN pip install --no-cache-dir -r requirements.txt
 USER 1001
 EXPOSE $PORT
-CMD ["start", "--actions", "actions", "--port", "$PORT"]
+CMD rasa-sdk start --actions actions --port $PORT
