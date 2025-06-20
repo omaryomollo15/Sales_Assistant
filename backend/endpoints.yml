@@ -1,9 +1,5 @@
 action_endpoint:
-<<<<<<< HEAD
-  url: "http://localhost:5055/webhook"  # Placeholder, update after deployment
+  url: "https://rasa-action-15ed.onrender.com/webhook"
 rest:
   host: "0.0.0.0"
   port: "${PORT}"
-=======
-   url: "http://localhost:5055/webhook"
->>>>>>> 83e344818cb78bd1e55bf31bbaf53c22f2c0ccb9
