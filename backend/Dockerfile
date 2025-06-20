@@ -1,10 +1,11 @@
 FROM rasa/rasa:3.6.0
 WORKDIR /app
 COPY . /app
+COPY start-rasa.sh /app/start-rasa.sh
 USER root
 RUN pip install --no-cache-dir -r requirements.txt
-USER 1001
-ENV PATH="/opt/venv/bin:$PATH"
+RUN chmod +x /app/start-rasa.sh
 RUN rasa telemetry disable
+USER 1001
 EXPOSE $PORT
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--port", "$PORT", "--model", "models/20250619-231757-devout-mr.tar.gz", "--endpoints", "endpoints.yml"]
+CMD ["/app/start-rasa.sh"]
