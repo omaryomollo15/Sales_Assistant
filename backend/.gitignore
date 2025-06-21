@@ -35,7 +35,7 @@ vianzio.pdf
 
 # Model tarballs
 backend/models/*.tar.gz
-!models/20250621-163218-collinear-karate.tar.gz
+!models/20250621-180103-overcast-space.tar.gz
 
 # Miscellaneous
 models_backup/
