@@ -1,3 +1,4 @@
+```yaml
 version: "3.1"
 rules:
   - rule: Respond to greeting
@@ -52,3 +53,4 @@ rules:
     steps:
       - intent: nlu_fallback
       - action: utter_fallback
+```

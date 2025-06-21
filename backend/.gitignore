@@ -35,7 +35,7 @@ vianzio.pdf
 
 # Model tarballs
 backend/models/*.tar.gz
-!backend/models/20250619-165226-impulsive-cocobolo.tar.gz
+!backend/models/20250619-231257-devout-skill.tar.gz
 
 # Miscellaneous
 models_backup/

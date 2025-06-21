@@ -19,6 +19,16 @@ slots:
     mappings:
       - type: from_text
     initial_value: swahili
+  phone_model:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_model
+  lock_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: lock_type
 actions:
   - action_send_price
   - action_lock_phone
@@ -40,230 +50,301 @@ responses:
   utter_ask_lost_phone:
     - text: "Ikiwa umepoteza simu yako, fuata hatua hizi:\n\n- Kama mteja atapoteza simu, piga huduma kwa wateja 0748770112 kwa maelekezo na msaada zaidi.\n- Mteja anapaswa kuripoti taarifa hiyo kituo cha Polisi mara baada ya tukio ili kupata barua ya upotevu wa simu yako.\n- Ambatanisha taarifa zako na kopi ya NIDA kisha utume kwenye anuani yetu: customercare@onfonmicrofinance.co.tz. Unahitaji msaada zaidi, nipo kukusaidia."
   utter_all_lock_solutions:
-    - text: "HATUA ZA KULOCK SIMU KWA KILA LOCK SOLUTION:\n\n1. V-Trust (Vivo):\n   a) Hakikisha simu ni mpya na haijawashwa.\n   b) Fungua boksi, fuata hatua za kuwasha simu.\n   c) Usiunganishe intaneti kabla ya kuweka IMEI ya kwanza kwenye mfumo (hakikisha IMEI sahihi).\n   d) Unganisha simu na intaneti thabiti.\n   e) Bonyeza kitufe cha kutuma AUTH CODE kwenye portal.\n   f) Fuata hatua za kuwasha simu hadi iwake kabisa.\n   g) Katika ubao wa taarifa, pata CODE ya V-Trust, iandike kwenye portal.\n   h) Thibitisha Code kwenye portal, bonyeza CODE kusanikisha V-Trust.\n   i) Kubali hatua zote hadi ujumbe 'UIDHINISHO UMEFANIKIWA (ACTIVATION SUCCESS)' uonekane, bonyeza OK.\n   j) Rudi kwenye portal kuthibitisha Lock Solution.\n\n2. Pay Trigger (Tecno, Infinix, Itel, Phillips):\n   a) Fungua boksi la simu.\n   b) Washa simu.\n   c) Kataa machaguo yasiyo ya lazima yanayoweza kuchelewesha kuwaka.\n   d) Kubali machaguo yanayohusisha ruhusa za leseni na mifumo.\n   e) Kamilisha mipangilio hadi uone aplikesheni za simu.\n   f) Unganisha simu na intaneti kusanikisha Lock Solution.\n   g) Kubali hatua zote kwa kubonyeza vitufe sahihi.\n   h) Baada ya kusanikisha Pay Trigger, rudi kwenye portal kuthibitisha Lock Solution.\n\n3. O-Guard (Oppo):\n   a) Fungua boksi la simu.\n   b) Washa simu.\n   c) Kataa machaguo yasiyo ya lazima yanayoweza kuchelewesha kuwaka.\n   d) Kubali machaguo yanayohusisha ruhusa za leseni na mifumo.\n   e) Kamilisha mipangilio hadi uone aplikesheni za simu.\n   f) Unganisha simu na intaneti kusanikisha Lock Solution.\n   g) Kubali hatua zote kwa kubonyeza vitufe sahihi.\n   h) Baada ya kusanikisha O-Guard, rudi kwenye portal kuthibitisha Lock Solution.\n\n4. Trustonic (Samsung):\n   Fuata maagizo ya mfumo wa mauzo wa Onfon Microfinance. Kwa sasa, hatua za kina za Trustonic hazijapatikana. Rudi kwenye portal kwa maelezo zaidi au wasiliana na timu ya msaada.\n\n5. Think Adams (Realme, Honor, ZTE, nyingine):\n   Fuata maagizo ya mfumo wa mauzo wa Onfon Microfinance. Kwa sasa, hatua za kina za Think Adams hazijapatikana. Rudi kwenye portal kwa maelezo zaidi au wasiliana na timu ya msaada.\n\nZINGATIA:\n- Hakikisha IMEI ya kwanza ni sahihi kabla ya kuwasilisha taarifa.\n- Simu lazima iunganishwe na intaneti thabiti wakati wa kusanikisha Lock Solution.\n- Usithibitishe Lock Solution kwenye portal kabla ya kukamilisha usanikishaji.\nUnahitaji msaada zaidi, nipo kukusaidia."
+    - text: |
+        HATUA ZA KULOCK SIMU KWA KILA LOCK SOLUTION:
+
+        1. V-Trust (Vivo):
+           a) Hakikisha simu ni mpya na haijawashwa.
+           b) Fungua boksi, fuata hatua za kuwasha simu.
+           c) Usiunganishe intaneti kabla ya kuweka IMEI ya kwanza kwenye mfumo (hakikisha IMEI sahihi).
+           d) Unganisha simu na intaneti thabiti.
+           e) Bonyeza kitufe cha kutuma AUTH CODE kwenye portal.
+           f) Fuata hatua za kuwasha simu hadi iwake kabisa.
+           g) Katika ubao wa taarifa, pata CODE ya V-Trust, iandike kwenye portal.
+           h) Thibitisha Code kwenye portal, bonyeza CODE kusanikisha V-Trust.
+           i) Kubali hatua zote hadi ujumbe 'UIDHINISHO UMEFANIKIWA (ACTIVATION SUCCESS)' uonekane, bonyeza OK.
+           j) Rudi kwenye portal kuthibitisha Lock Solution.
+
+        2. Pay Trigger (Tecno, Infinix, Itel, Phillips):
+           a) Fungua boksi la simu.
+           b) Washa simu.
+           c) Kataa machaguo yasiyo ya lazima yanayoweza kuchelewesha kuwaka.
+           d) Kubali machaguo yanayohusisha ruhusa za leseni na mifumo.
+           e) Kamilisha mipangilio hadi uone aplikesheni za simu.
+           f) Unganisha simu na intaneti kusanikisha Lock Solution.
+           g) Kubali hatua zote kwa kubonyeza vitufe sahihi.
+           h) Baada ya kusanikisha Pay Trigger, rudi kwenye portal kuthibitisha Lock Solution.
+
+        3. O-Guard (Oppo):
+           a) Fungua boksi la simu.
+           b) Washa simu.
+           c) Kataa machaguo yasiyo ya lazima yanayoweza kuchelewesha kuwaka.
+           d) Kubali machaguo yanayohusisha ruhusa za leseni na mifumo.
+           e) Kamilisha mipangilio hadi uone aplikesheni za simu.
+           f) Unganisha simu na intaneti kusanikisha Lock Solution.
+           g) Kubali hatua zote kwa kubonyeza vitufe sahihi.
+           h) Baada ya kusanikisha O-Guard, rudi kwenye portal kuthibitisha Lock Solution.
+
+        4. Trustonic (Samsung):
+           Fuata maagizo ya mfumo wa mauzo wa Onfon Microfinance. Kwa sasa, hatua za kina za Trustonic hazijapatikana. Rudi kwenye portal kwa maelezo zaidi au wasiliana na timu ya msaada.
+
+        5. Think Adams (Realme, Honor, ZTE, nyingine):
+           a) Washa simu.
+           b) Bonyeza mara 5-7 katika display ambayo haijaandikwa kitu ili kufungua Camera.
+           c) Skani QR Code iliyopo kwenye portal.
+           d) Unganisha simu na Wi-Fi.
+           e) Kubali hatua zinazofuata hadi simu inapofikia hatua ya mwisho ili kuinstall lock solution.
+           f) Hakikisha Think Adams DPC imekuwa installed kwenye simu ya mteja pamoja na Aplikesheni ya Onfon Microfinance.
+           g) Ingia kwenye Think Adams DPC na urefresh app hadi itakapokuonesha “Last Sync” yenye tarehe na muda ambao umelock simu.
+           h) Baada ya kuona tarehe na muda kwenye Lock Solution, rudi kwenye Portal ili kuconfirm Lock solution.
+           i) Hakikisha Lock na Loan vinasoma Active kabla ya kumpatia mteja simu yake.
+
+        ZINGATIA:
+        - Hakikisha IMEI ya kwanza ni sahihi kabla ya kuwasilisha taarifa.
+        - Simu lazima iunganishwe na intaneti thabiti wakati wa kusanikisha Lock Solution.
+        - Usithibitishe Lock Solution kwenye portal kabla ya kukamilisha usanikishaji.
+        Unahitaji msaada zaidi, nipo kukusaidia.
   utter_lock_phone:
-    - text: "Ili kulock simu, kila brand inatumia Lock Solution yake:\n- Vivo: V-Trust\n- Tecno, Infinix, Itel, Phillips: Pay Trigger\n- Oppo: O-Guard\n- Samsung: Trustonic\n- Realme, Honor, ZTE: Think Adams\nTaja  lock type (k.m., V-Trust) kwa maelezo ya hatua za kulock, au uliza 'lock solutions zote' kwa maelezo yote. Unahitaji msaada zaidi, nipo kukusaidia."
+    - text: "Ili kulock simu, kila brand inatumia Lock Solution yake:\n- Vivo: V-Trust\n- Tecno, Infinix, Itel, Phillips: Pay Trigger\n- Oppo: O-Guard\n- Samsung: Trustonic\n- Realme, Honor, ZTE: Think Adams\nTaja brand (k.m., Realme) au lock type (k.m., Think Adams) kwa maelezo ya hatua za kulock, au uliza 'lock solutions zote' kwa maelezo yote. Unahitaji msaada zaidi, nipo kukusaidia."
+  utter_specific_lock_phone:
+    - text: |
+        Hatua za kulock simu kwa {lock_type} ({phone_model}):
+        
+        {lock_steps}
+        
+        ZINGATIA:
+        - Hakikisha IMEI ya kwanza ni sahihi kabla ya kuwasilisha taarifa.
+        - Simu lazima iunganishwe na intaneti thabiti wakati wa kusanikisha Lock Solution.
+        - Usithibitishe Lock Solution kwenye portal kabla ya kukamilisha usanikishaji.
+        Unahitaji msaada zaidi, nipo kukusaidia.
   utter_phone_pricing:
     - text: |
         Hizi ni bei za simu za OnfonMobile TZ (TZS):
 
-        1. Simu: OPPO A18 4/64GB
+        1. Simu: OPPO A18 4/64GB (O-Guard)
            Bei ya Kuuzia: 300,000
            Kianzio: 90,000
            Malipo ya Siku: 1,700
            Malipo ya Wiki: 11,900
            Malipo ya Mwezi: 51,000
-        2. Simu: OPPO A18 4/128GB
+        2. Simu: OPPO A18 4/128GB (O-Guard)
            Bei ya Kuuzia: 350,000
            Kianzio: 108,000
            Malipo ya Siku: 2,000
            Malipo ya Wiki: 14,000
            Malipo ya Mwezi: 60,000
-        3. Simu: OPPO A38 4/128GB
+        3. Simu: OPPO A38 4/128GB (O-Guard)
            Bei ya Kuuzia: 440,000
            Kianzio: 132,000
            Malipo ya Siku: 2,400
            Malipo ya Wiki: 16,800
            Malipo ya Mwezi: 72,000
-        4. Simu: OPPO A58 6/128GB
+        4. Simu: OPPO A58 6/128GB (O-Guard)
            Bei ya Kuuzia: 510,000
            Kianzio: 153,000
            Malipo ya Siku: 2,700
            Malipo ya Wiki: 18,900
            Malipo ya Mwezi: 81,000
-        5. Simu: OPPO A58 8/128GB
+        5. Simu: OPPO A58 8/128GB (O-Guard)
            Bei ya Kuuzia: 590,000
            Kianzio: 177,000
            Malipo ya Siku: 3,100
            Malipo ya Wiki: 21,700
            Malipo ya Mwezi: 93,000
-        6. Simu: OPPO A3X 4/64GB
+        6. Simu: OPPO A3X 4/64GB (O-Guard)
            Bei ya Kuuzia: 330,000
            Kianzio: 99,000
            Malipo ya Siku: 1,900
            Malipo ya Wiki: 13,300
            Malipo ya Mwezi: 57,000
-        7. Simu: OPPO A3X 4/128GB
+        7. Simu: OPPO A3X 4/128GB (O-Guard)
            Bei ya Kuuzia: 399,000
            Kianzio: 119,700
            Malipo ya Siku: 2,200
            Malipo ya Wiki: 15,400
            Malipo ya Mwezi: 66,000
-        8. Simu: VIVO Y28 8/256GB
+        8. Simu: VIVO Y28 8/256GB (V-Trust)
            Bei ya Kuuzia: 559,000
            Kianzio: 167,700
            Malipo ya Siku: 3,000
            Malipo ya Wiki: 21,000
            Malipo ya Mwezi: 90,000
-        9. Simu: VIVO Y18 6/128GB
+        9. Simu: VIVO Y18 6/128GB (V-Trust)
            Bei ya Kuuzia: 390,000
            Kianzio: 117,000
            Malipo ya Siku: 2,200
            Malipo ya Wiki: 15,400
            Malipo ya Mwezi: 66,000
-        10. Simu: VIVO Y03 4/128GB
+        10. Simu: VIVO Y03 4/128GB (V-Trust)
             Bei ya Kuuzia: 332,000
             Kianzio: 99,600
             Malipo ya Siku: 1,900
             Malipo ya Wiki: 13,300
             Malipo ya Mwezi: 57,000
-        11. Simu: VIVO Y03 4/64GB
+        11. Simu: VIVO Y03 4/64GB (V-Trust)
             Bei ya Kuuzia: 289,000
             Kianzio: 86,700
             Malipo ya Siku: 1,700
             Malipo ya Wiki: 11,900
             Malipo ya Mwezi: 51,000
-        12. Simu: VIVO Y19s 6/128GB
+        12. Simu: VIVO Y19s 6/128GB (V-Trust)
             Bei ya Kuuzia: 380,000
             Kianzio: 114,000
             Malipo ya Siku: 2,100
             Malipo ya Wiki: 14,700
             Malipo ya Mwezi: 63,000
-        13. Simu: SAMSUNG A05 4/128GB
+        13. Simu: SAMSUNG A05 4/128GB (Trustonic)
             Bei ya Kuuzia: 325,000
             Kianzio: 97,500
             Malipo ya Siku: 1,900
             Malipo ya Wiki: 13,300
             Malipo ya Mwezi: 57,000
-        14. Simu: SAMSUNG A05 4/64GB
+        14. Simu: SAMSUNG A05 4/64GB (Trustonic)
             Bei ya Kuuzia: 300,000
             Kianzio: 90,000
             Malipo ya Siku: 1,700
             Malipo ya Wiki: 11,900
             Malipo ya Mwezi: 51,000
-        15. Simu: SAMSUNG A05s 4/64GB
+        15. Simu: SAMSUNG A05s 4/64GB (Trustonic)
             Bei ya Kuuzia: 355,000
             Kianzio: 106,500
             Malipo ya Siku: 2,000
             Malipo ya Wiki: 14,000
             Malipo ya Mwezi: 60,000
-        16. Simu: SAMSUNG A05s 4/128GB
+        16. Simu: SAMSUNG A05s 4/128GB (Trustonic)
             Bei ya Kuuzia: 380,000
             Kianzio: 114,000
             Malipo ya Siku: 2,100
             Malipo ya Wiki: 14,700
             Malipo ya Mwezi: 63,000
-        17. Simu: INFINIX NOTE 30 PRO 8/256GB
+        17. Simu: INFINIX NOTE 30 PRO 8/256GB (Pay Trigger)
             Bei ya Kuuzia: 480,000
             Kianzio: 144,000
             Malipo ya Siku: 2,600
             Malipo ya Wiki: 18,200
             Malipo ya Mwezi: 78,000
-        18. Simu: INFINIX SMART 8 3/64GB
+        18. Simu: INFINIX SMART 8 3/64GB (Pay Trigger)
             Bei ya Kuuzia: 269,000
             Kianzio: 80,700
             Malipo ya Siku: 1,600
             Malipo ya Wiki: 11,200
             Malipo ya Mwezi: 48,000
-        19. Simu: INFINIX SMART 9 4/128GB
+        19. Simu: INFINIX SMART 9 4/128GB (Pay Trigger)
             Bei ya Kuuzia: 328,000
             Kianzio: 98,400
             Malipo ya Siku: 1,900
             Malipo ya Wiki: 13,300
             Malipo ya Mwezi: 57,000
-        20. Simu: INFINIX HOT50I 4G/128GB
+        20. Simu: INFINIX HOT50I 4G/128GB (Pay Trigger)
             Bei ya Kuuzia: 340,000
             Kianzio: 102,000
             Malipo ya Siku: 1,900
             Malipo ya Wiki: 13,300
             Malipo ya Mwezi: 57,000
-        21. Simu: INFINIX HOT 40i 8/128GB
+        21. Simu: INFINIX HOT 40i 8/128GB (Pay Trigger)
             Bei ya Kuuzia: 333,000
             Kianzio: 99,900
             Malipo ya Siku: 1,900
             Malipo ya Wiki: 13,300
             Malipo ya Mwezi: 57,000
-        22. Simu: INFINIX HOT 50 PRO+ 8/128GB
+        22. Simu: INFINIX HOT 50 PRO+ 8/128GB (Pay Trigger)
             Bei ya Kuuzia: 590,000
             Kianzio: 177,000
             Malipo ya Siku: 3,100
             Malipo ya Wiki: 21,700
             Malipo ya Mwezi: 93,000
-        23. Simu: TECNO CAMON 30S 128GB/6GB
+        23. Simu: TECNO CAMON 30S 128GB/6GB (Pay Trigger)
             Bei ya Kuuzia: 580,000
             Kianzio: 174,000
             Malipo ya Siku: 3,100
             Malipo ya Wiki: 21,700
             Malipo ya Mwezi: 93,000
-        24. Simu: TECNO SPARK 30C 128GB/4GB
+        24. Simu: TECNO SPARK 30C 128GB/4GB (Pay Trigger)
             Bei ya Kuuzia: 330,000
             Kianzio: 99,000
             Malipo ya Siku: 1,900
             Malipo ya Wiki: 13,300
             Malipo ya Mwezi: 57,000
-        25. Simu: REALME C61 6/128GB
+        25. Simu: REALME C61 6/128GB (Think Adams)
             Bei ya Kuuzia: 350,000
             Kianzio: 105,000
             Malipo ya Siku: 2,000
             Malipo ya Wiki: 14,000
             Malipo ya Mwezi: 60,000
-        26. Simu: REALME C61 6/256GB
+        26. Simu: REALME C61 6/256GB (Think Adams)
             Bei ya Kuuzia: 360,000
             Kianzio: 108,000
             Malipo ya Siku: 2,000
             Malipo ya Wiki: 14,000
             Malipo ya Mwezi: 60,000
-        27. Simu: REALME NOTE 50 4/128GB
+        27. Simu: REALME NOTE 50 4/128GB (Think Adams)
             Bei ya Kuuzia: 290,000
             Kianzio: 87,000
             Malipo ya Siku: 1,700
             Malipo ya Wiki: 11,900
             Malipo ya Mwezi: 51,000
-        28. Simu: REALME NOTE 50 6/64GB
+        28. Simu: REALME NOTE 50 6/64GB (Think Adams)
             Bei ya Kuuzia: 250,000
             Kianzio: 75,000
             Malipo ya Siku: 1,500
             Malipo ya Wiki: 10,500
             Malipo ya Mwezi: 45,000
-        29. Simu: HONOR X7B 256/8GB
+        29. Simu: HONOR X7B 256/8GB (Think Adams)
             Bei ya Kuuzia: 500,000
             Kianzio: 150,000
             Malipo ya Siku: 2,700
             Malipo ya Wiki: 18,900
             Malipo ya Mwezi: 81,000
-        30. Simu: HONOR X6B 256GB/6GB
+        30. Simu: HONOR X6B 256GB/6GB (Think Adams)
             Bei ya Kuuzia: 400,000
             Kianzio: 120,000
             Malipo ya Siku: 2,200
             Malipo ya Wiki: 15,400
             Malipo ya Mwezi: 66,000
-        31. Simu: HONOR X6B 128GB/6GB
+        31. Simu: HONOR X6B 128GB/6GB (Think Adams)
             Bei ya Kuuzia: 365,000
             Kianzio: 109,500
             Malipo ya Siku: 2,000
             Malipo ya Wiki: 14,000
             Malipo ya Mwezi: 60,000
-        32. Simu: HONOR X5PLUS 64GB/4GB
+        32. Simu: HONOR X5PLUS 64GB/4GB (Think Adams)
             Bei ya Kuuzia: 280,000
             Kianzio: 84,000
             Malipo ya Siku: 1,700
             Malipo ya Wiki: 11,900
             Malipo ya Mwezi: 51,000
-        33. Simu: HISENSE E70 PRO 128/4GB
+        33. Simu: HISENSE E70 PRO 128/4GB (Think Adams)
             Bei ya Kuuzia: 280,000
             Kianzio: 84,000
             Malipo ya Siku: 1,700
             Malipo ya Wiki: 11,900
             Malipo ya Mwezi: 51,000
-        34. Simu: HISENSE E71 64/4GB
+        34. Simu: HISENSE E71 64/4GB (Think Adams)
             Bei ya Kuuzia: 250,000
             Kianzio: 75,000
             Malipo ya Siku: 1,500
             Malipo ya Wiki: 10,500
             Malipo ya Mwezi: 45,000
-        35. Simu: ZTE A35 4G/64GB
+        35. Simu: ZTE A35 4G/64GB (Think Adams)
             Bei ya Kuuzia: 250,000
             Kianzio: 75,000
             Malipo ya Siku: 1,500
             Malipo ya Wiki: 10,500
             Malipo ya Mwezi: 45,000
-        36. Simu: ZTE A55 4G/128GB
+        36. Simu: ZTE A55 4G/128GB (Think Adams)
             Bei ya Kuuzia: 290,000
             Kianzio: 87,000
             Malipo ya Siku: 1,700
             Malipo ya Wiki: 11,900
             Malipo ya Mwezi: 51,000
         Unahitaji msaada zaidi, nipo kukusaidia.
+  utter_specific_price:
+    - text: |
+        Bei za simu za {phone_model} (Lock Solution: {lock_solution}):
+        
+        {price_list}
+        
+        Samahani, ikiwa sijaona modeli au brand uliyotaja. Tafadhali taja modeli, k.m. 'OPPO A18 4/64GB', au brand, k.m. 'OPPO', au uliza 'Bei za simu' kwa orodha yote. Unahitaji msaada zaidi, nipo kukusaidia.
   utter_thank_you:
     - text: "Karibu tena, nakutakia mauzo mema. Unahitaji msaada zaidi, nipo kukusaidia."
   utter_fallback:

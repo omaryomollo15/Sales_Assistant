@@ -2,6 +2,8 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
+    - hi
+    - hello
     - mambo
     - Mambo
     - mambo vipi
